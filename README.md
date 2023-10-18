@@ -10,10 +10,10 @@ Slaptažodis saugomas šifruojant.
 Reikalingos lentelės:
 
 -   users
--   accounts
--   meetup
+-   meetups
 -   meetups_lists
 -   countries
 -   cities
+-   languages
 
 Registruoti vartotojai gali kurti susitikimus, kuriuos gali pasižymėti kiti vartotojai.
