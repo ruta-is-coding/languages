@@ -11,9 +11,9 @@ class MeetupController extends Controller
 {
     public function index()
     {
-        $meetup = Meetup::all();
+        $meetupsList = Meetup::all();
         return Inertia::render('Meetups', [
-            'meetups' => $meetup,
+            'meetupsList' => $meetupsList,
         ]);
     }
 }
