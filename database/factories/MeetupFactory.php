@@ -22,6 +22,7 @@ class MeetupFactory extends Factory
         return [
             'name' => fake()->text(5),
             'city' => fake()->city(),
+            'photo' => fake()->imageUrl(640, 480, 'animals', true),
             'description' => fake()->sentence(30),
             'date' => fake()->dateTimeBetween('now', '+1 year')->format('Y-m-d H:i:s'),
             'country_id' => Country::inRandomOrder()->first()->id,

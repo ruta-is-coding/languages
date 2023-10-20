@@ -19,14 +19,20 @@ a {
     @apply text-rose-600 lg:text-xl text-base font-normal hover:text-rose-700 hover:scale-110;
 }
 main .container {
-    @apply mx-auto lg:max-w-3xl;
+    @apply mx-auto lg:max-w-3xl px-7;
 }
 p {
     @apply md:text-left text-justify md:text-xl md:font-normal text-base font-light;
     max-width: 90ch;
 }
+img {
+    @apply rounded-lg;
+}
 h2 {
     @apply text-rose-400 lg:text-4xl md:text-3xl text-2xl font-light lg:text-left text-center;
+}
+h3 {
+    @apply text-rose-600 lg:text-2xl text-xl font-medium text-center;
 }
 main .container {
     @apply mx-auto lg:max-w-3xl;

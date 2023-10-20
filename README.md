@@ -13,7 +13,8 @@ Reikalingos lentelės:
 -   meetups
 -   meetups_lists
 -   countries
--   cities
 -   languages
 
-Registruoti vartotojai gali kurti susitikimus, kuriuos gali pasižymėti kiti vartotojai.
+Registruoti vartotojai gali kurti susitikimus.
+
+-   Pasirinktinai: susitikimus gali pasižymėti kiti vartotojai.

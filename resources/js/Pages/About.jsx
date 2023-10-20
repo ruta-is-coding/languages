@@ -7,11 +7,7 @@ const About = () => {
         <GuestLayout>
             <h1>About me</h1>
             <section className="grid md:grid-cols-2 md:gap-14 gap-3 md:items-center">
-                <img
-                    src={myImage}
-                    alt="My photo"
-                    className="w-100 rounded-lg my-3"
-                />
+                <img src={myImage} alt="My photo" className="w-100 my-3" />
                 <div>
                     <p className="md:mb-5 mb-3">
                         My name is Rūta. I am an aspiring web developer with

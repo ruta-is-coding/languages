@@ -12,6 +12,7 @@ class Meetup extends Model
         'city',
         'description',
         'date',
+        'photo',
         'country_id',
         'user_id',
         'language_id',
