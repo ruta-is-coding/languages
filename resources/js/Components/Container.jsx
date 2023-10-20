@@ -1,9 +1,5 @@
 const Container = ({ children }) => {
-    return (
-        <main className="md:pt-10">
-            <div className="container">{children}</div>
-        </main>
-    );
+    return <div className="container md:pt-10">{children}</div>;
 };
 
 export default Container;

@@ -28,3 +28,6 @@ p {
 h2 {
     @apply text-rose-400 lg:text-4xl md:text-3xl text-2xl font-light lg:text-left text-center;
 }
+main .container {
+    @apply mx-auto lg:max-w-3xl;
+}
