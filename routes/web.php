@@ -4,7 +4,6 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\MeetupController as M;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +16,9 @@ use App\Http\Controllers\MeetupController as M;
 |
 */
 
-Route::get('/meetups', [M::class, 'index'])->name('meetups.index');
+Route::inertia('/meetups', 'Meetups')->name('meetups');
+Route::inertia('/about', 'About')->name('about');
+Route::inertia('/contact', 'Contact')->name('contact');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

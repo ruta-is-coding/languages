@@ -2,7 +2,7 @@ const Logo = () => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             data-name="Layer 1"
             width="170.92303"
             height="61.20898"
@@ -17,9 +17,9 @@ const Logo = () => {
                     y2="251.5"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0" stop-color="gray" stop-opacity="0.25" />
-                    <stop offset="0.54" stop-color="gray" stop-opacity="0.12" />
-                    <stop offset="1" stop-color="gray" stop-opacity="0.1" />
+                    <stop offset="0" stopColor="gray" stopOpacity="0.25" />
+                    <stop offset="0.54" stopColor="gray" stopOpacity="0.12" />
+                    <stop offset="1" stopColor="gray" stopOpacity="0.1" />
                 </linearGradient>
                 <linearGradient
                     id="f59ba046-7ebe-407e-be3d-c62856fc1078-205"
@@ -27,7 +27,7 @@ const Logo = () => {
                     y1="788.54"
                     x2="712"
                     y2="248.5"
-                    xlink:href="#b7709055-0dd4-48d6-ac10-5a758f15d1a1-204"
+                    xlinkHref="#b7709055-0dd4-48d6-ac10-5a758f15d1a1-204"
                 />
             </defs>
             <title>true friends</title>
