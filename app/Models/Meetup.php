@@ -9,8 +9,12 @@ class Meetup extends Model
 {
     protected $fillable = [
         'name',
+        'city',
         'description',
-        'date'
+        'date',
+        'country_id',
+        'user_id',
+        'language_id',
     ];
 
     use HasFactory;

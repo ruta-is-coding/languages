@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Meetup_participant extends Model
 {
     protected $fillable = [
-        'city_name'
+        'user_id',
+        'meetup_id',
     ];
 
     use HasFactory;

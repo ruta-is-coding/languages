@@ -25,3 +25,6 @@ p {
     @apply md:text-left text-justify md:text-xl md:font-normal text-base font-light;
     max-width: 90ch;
 }
+h2 {
+    @apply text-rose-400 lg:text-4xl md:text-3xl text-2xl font-light lg:text-left text-center;
+}

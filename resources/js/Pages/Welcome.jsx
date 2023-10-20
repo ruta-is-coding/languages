@@ -1,10 +1,11 @@
 import { Link, Head } from "@inertiajs/react";
+import GuestLayout from "@/Layouts/GuestLayout";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Language meetups" />
-            <div className="row p-6 text-right">
+            <div className="row text-right">
                 {auth.user ? (
                     <Link
                         to={route("dashboard")}
@@ -13,10 +14,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         Dashboard
                     </Link>
                 ) : (
-                    <div className="flex justify-end gap-3">
-                        <Link href={route("login")}>Log in</Link>
+                    <GuestLayout>
+                        <Link href={route("login")}>Login</Link>
                         <Link href={route("register")}>Register</Link>
-                    </div>
+                    </GuestLayout>
                 )}
             </div>
 

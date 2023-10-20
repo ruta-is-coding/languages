@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('meetups', function (Blueprint $table) {
             $table->id();
             $table->string('name', 200);
+            $table->string('city', 100);
             $table->text('description');
             $table->dateTime('date');
-            $table->foreignId('city_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('country_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('language_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
