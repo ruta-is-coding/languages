@@ -12,5 +12,10 @@ class Language extends Model
     ];
     public $timestamps = false;
 
+    public function meetups()
+    {
+        return $this->belongsToMany(Meetup::class, 'meetup_languages', 'language_id', 'meetup_id');
+    }
+
     use HasFactory;
 }

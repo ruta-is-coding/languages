@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('full_name', 100);
             $table->string('photo', 200);
+            $table->text('about_me');
             $table->date('date_of_birth');
             $table->timestamps();
+            // foreign id from users table
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
         });
     }

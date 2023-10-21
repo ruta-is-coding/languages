@@ -22,7 +22,7 @@ const Header = () => {
 
     return (
         <header className="shadow-lg md:py-10 py-5 md:px-0 px-1 w-full">
-            <div className="container flex justify-between lg:gap-9 md:gap-7 md:px-1 px-7">
+            <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7">
                 <div className="flex md:items-center md:flex-row md:gap-0 flex-col gap-3 items-start">
                     <Logo />
                     <h2>Language meetups</h2>
@@ -34,7 +34,7 @@ const Header = () => {
                         menuVisibility={menuVisibility}
                     />
                     <div
-                        className={`md:flex md:flex-row items-end flex-col lg:gap-7 md:gap-3 ${menuVisibility}`}
+                        className={`md:flex md:flex-row items-end flex-col lg:gap-5 md:gap-3 ${menuVisibility}`}
                     >
                         <Link href="/">Home</Link>
                         <Link href="meetups">Meetups</Link>

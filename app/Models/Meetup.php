@@ -14,9 +14,13 @@ class Meetup extends Model
         'date',
         'photo',
         'country_id',
-        'user_id',
-        'language_id',
+        'profile_id',
     ];
+
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class, 'meetup_languages', 'meetup_id', 'language_id');
+    }
 
     use HasFactory;
 }

@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Meetup_participant extends Model
+class MeetupLanguage extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
-        'user_id',
+        'language_id',
         'meetup_id',
     ];
-
-    use HasFactory;
 }

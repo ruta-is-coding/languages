@@ -5,6 +5,7 @@ const Meetups = ({ meetupsList }) => {
     return (
         <GuestLayout>
             <h1>Language meetups</h1>
+            {/* Meetups list */}
             <div class="grid md:grid-cols-4 gap-x-4 md:gap-y-7 gap-y-10 justify-items-center">
                 {meetupsList.map((meetup) => (
                     <div
