@@ -1,12 +1,26 @@
 import GuestLayout from "@/Layouts/GuestLayout";
 
-const Meetups = ({ meetupsList }) => {
-    console.log(meetupsList);
+const Meetups = ({ meetupsList, countries }) => {
+    console.log(countries);
     return (
         <GuestLayout>
-            <h1>Language meetups</h1>
+            <h1>Meet friends from all over the world</h1>
+            {/* Countries */}
+            <div className="row mt-24">
+                <select className="my-7 block py-2.5 px-3 w-50 text-sm text-rose-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-rose-200 peer">
+                    {countries.map((country) => (
+                        <option
+                            key={country.id}
+                            value={country.id}
+                            className="text-sm py-3 text-rose-700 hover:bg-rose-100"
+                        >
+                            {country.country_name}
+                        </option>
+                    ))}
+                </select>
+            </div>
             {/* Meetups list */}
-            <div class="grid md:grid-cols-4 gap-x-4 md:gap-y-7 gap-y-10 justify-items-center">
+            <div className="grid md:grid-cols-4 gap-x-4 md:gap-y-7 gap-y-10 justify-items-center">
                 {meetupsList.map((meetup) => (
                     <div
                         className="flex flex-col md:gap-1 gap-1 items-center mt-3"

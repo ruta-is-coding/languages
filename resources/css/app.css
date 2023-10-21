@@ -12,11 +12,11 @@
 }
 
 h1 {
-    @apply md:my-14 mt-7 mb-3 text-rose-400 text-center md:text-6xl text-3xl font-light w-8/12 mx-auto;
+    @apply md:my-14 my-7 text-rose-700 text-center md:text-6xl text-3xl font-light lg:w-7/12 w-8/12 mx-auto md:leading-tight;
 }
 a {
     text-decoration: none;
-    @apply text-rose-600 lg:text-xl text-base font-normal hover:text-rose-700 hover:scale-110;
+    @apply text-rose-500 lg:text-xl text-base font-normal hover:text-rose-700 hover:scale-110;
 }
 main .container {
     @apply mx-auto lg:max-w-3xl px-7;
