@@ -17,6 +17,8 @@ Puslapio aprašymas: pasinaudojant Laravel karkasu ir React biblioteka, sukurti 
 2. Savo sukurtus susitikimus galima redaguoti ir ištrinti;
 3. Vartotojas gali įkelti savo profilio nuotrauką, parašyti vardą ir pavardę, nurodyti gimimo datą.
 
+---
+
 **English**
 
 Website description: create a platform for language exchange meetings in _Europe_ using Laravel framework and React library. Styling is done using Tailwind CSS.
