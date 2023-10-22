@@ -1,7 +1,8 @@
 # Language meetups
 
-Puslapio aprašymas:
-Pasinaudojant Laravel karkasu ir React biblioteka, sukurti užsienio kalbų mainų susitikimų _Europoje_ platformą. Stilius kuriamas naudojantis Tailwind CSS
+**Lithuanian**
+
+Puslapio aprašymas: pasinaudojant Laravel karkasu ir React biblioteka, sukurti užsienio kalbų mainų susitikimų _Europoje_ platformą. Stilius kuriamas naudojantis Tailwind CSS.
 
 ### Vieša sritis
 
@@ -12,6 +13,23 @@ Pasinaudojant Laravel karkasu ir React biblioteka, sukurti užsienio kalbų main
 
 ### Vartotojo sritis
 
-1. Registruotas vartotojas gali kurti susitikimus.
-2. Savo sukurtus susitikimus galima redaguoti ir ištrinti.
+1. Registruotas vartotojas gali kurti susitikimus;
+2. Savo sukurtus susitikimus galima redaguoti ir ištrinti;
 3. Vartotojas gali įkelti savo profilio nuotrauką, parašyti vardą ir pavardę, nurodyti gimimo datą.
+
+**English**
+
+Website description: create a platform for language exchange meetings in _Europe_ using Laravel framework and React library. Styling is done using Tailwind CSS.
+
+### Public domain
+
+1. Anyone can register;
+2. In the Meetups section, you can see all language meetings. When you click on them, you can see more detailed information (meeting name, description, languages, organizer, country, city, date and time);
+3. Meetings can be sorted by country;
+4. Meetings can also be sorted by language.
+
+### User area
+
+1. A registered user can create meetings;
+2. The user can edit and delete the meetings that he created;
+3. The user can upload his profile picture, write his name and a date of birth.
