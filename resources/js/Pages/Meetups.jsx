@@ -8,6 +8,9 @@ const Meetups = ({ meetupsList, countries }) => {
             {/* Countries */}
             <div className="row mt-18">
                 <select className="my-7 block py-2.5 px-3 w-50 text-sm text-rose-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-rose-200 peer">
+                    <option className="text-sm py-3 text-rose-700 hover:bg-rose-100">
+                        All countries
+                    </option>
                     {countries.map((country) => (
                         <option
                             key={country.id}

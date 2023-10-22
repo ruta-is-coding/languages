@@ -1,20 +1,17 @@
-# language-meetups-app
+# Language meetups
 
-Aplikacijos aprašymas:
-Pasinaudojant Laravel karkasu ir React biblioteka sukurti užsienio kalbų mainų susitikimų aplikaciją, veikiančią Europoje.
+Puslapio aprašymas:
+Pasinaudojant Laravel karkasu ir React biblioteka, sukurti užsienio kalbų mainų susitikimų _Europoje_ platformą. Stilius kuriamas naudojantis Tailwind CSS
 
-Sukurti vartotojų užsiregistravimą ir prisijungimą.
-Atlikti visų įvestų duomenų validaciją.
-Slaptažodis saugomas šifruojant.
+### Vieša sritis
 
-Reikalingos lentelės:
+1. Kiekvienas norintis gali užsiregistruoti;
+2. Meetups skiltyje matomi visi kalbų susitikimai, ant kurių paspaudus galima matyti dar detalesnę informaciją (susitikimo pavadinimas, aprašymas, kalbos, organizatorius, šalis, miestas, data ir laikas);
+3. Susitikimus galima išrūšiuoti pagal šalį;
+4. Taip pat galima išrūšiuoti pagal kalbą.
 
--   users
--   meetups
--   meetups_lists
--   countries
--   languages
+### Vartotojo sritis
 
-Registruoti vartotojai gali kurti susitikimus.
-
--   Pasirinktinai: susitikimus gali pasižymėti kiti vartotojai.
+1. Registruotas vartotojas gali kurti susitikimus.
+2. Savo sukurtus susitikimus galima redaguoti ir ištrinti.
+3. Vartotojas gali įkelti savo profilio nuotrauką, parašyti vardą ir pavardę, nurodyti gimimo datą.
