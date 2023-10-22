@@ -4,7 +4,6 @@ import GuestLayout from "@/Layouts/GuestLayout";
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
-            <Head title="Language meetups" />
             <div className="row text-right">
                 {auth.user ? (
                     <Link
@@ -14,7 +13,19 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         Dashboard
                     </Link>
                 ) : (
-                    <GuestLayout />
+                    <GuestLayout>
+                        <h1>Expand your horizons through languages</h1>
+                        <div className="row pt-5">
+                            <button class="bg-rose-700 hover:bg-rose-600 py-2 px-4 rounded">
+                                <Link
+                                    href={route("register")}
+                                    className="text-white font-bold hover:text-white"
+                                >
+                                    Join us!
+                                </Link>
+                            </button>
+                        </div>
+                    </GuestLayout>
                 )}
             </div>
         </>

@@ -3,7 +3,7 @@ import Logo from "@/Components/Logo";
 import Burger from "@/Components/Burger";
 import { useState } from "react";
 
-const Header = () => {
+const Header = ({ auth }) => {
     const [burgerClick, setBurgerClick] = useState(false);
     const [menuVisibility, setMenuVisibility] = useState("hidden");
 
@@ -21,7 +21,7 @@ const Header = () => {
     };
 
     return (
-        <header className="shadow-lg md:py-10 py-5 md:px-0 px-1 w-full">
+        <header className="shadow-lg md:py-8 py-5 md:px-0 px-1 w-full">
             <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7">
                 <div className="flex md:items-center md:flex-row md:gap-0 flex-col gap-3 items-start">
                     <Logo />
@@ -37,7 +37,7 @@ const Header = () => {
                         className={`md:flex md:flex-row items-end flex-col lg:gap-5 md:gap-3 ${menuVisibility}`}
                     >
                         <Link href="/">Home</Link>
-                        <Link href="meetups">Meetups</Link>
+                        <Link href="/meetups">Meetups</Link>
                         <Link href="/contact">Contact</Link>
                         <Link href="/about">About</Link>
                         <Link href={route("login")}>Login</Link>

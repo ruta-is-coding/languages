@@ -4,9 +4,9 @@ const Meetups = ({ meetupsList, countries }) => {
     console.log(countries);
     return (
         <GuestLayout>
-            <h1>Meet friends from all over the world</h1>
+            <h1>Meet new people from all over the world</h1>
             {/* Countries */}
-            <div className="row mt-24">
+            <div className="row mt-18">
                 <select className="my-7 block py-2.5 px-3 w-50 text-sm text-rose-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-rose-200 peer">
                     {countries.map((country) => (
                         <option
