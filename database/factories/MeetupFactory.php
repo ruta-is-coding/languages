@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Country;
-use App\Models\Profile;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Meetup>
@@ -23,9 +23,9 @@ class MeetupFactory extends Factory
             'city' => fake()->city(),
             'photo' => fake()->imageUrl(640, 480, 'animals', true),
             'description' => fake()->sentence(30),
-            'date' => fake()->dateTimeBetween('now', '+1 year')->format('Y-m-d H:i:s'),
+            'date' => fake()->dateTimeBetween('now', '+1 year')->format('Y-m-d H:i'),
             'country_id' => Country::inRandomOrder()->first()->id,
-            'profile_id' => Profile::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
         ];
     }
 }

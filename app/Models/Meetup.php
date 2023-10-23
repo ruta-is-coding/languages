@@ -14,7 +14,7 @@ class Meetup extends Model
         'date',
         'photo',
         'country_id',
-        'profile_id',
+        'user_id',
     ];
 
     public function languages()

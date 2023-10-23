@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileController as P;
 use App\Http\Controllers\MeetupController as M;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -25,11 +25,13 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Authentificated routes (only for logged-in user)
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::get('/create', [M::class, 'meetupForm'])->name('create');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [P::class, 'edit'])->name('profile.edit');
+    Route::get('/create-a-meetup', [M::class, 'meetupForm'])->name('create');
+    Route::get('/my-meetups', [M::class, 'userMeetups'])->name('userMeetups');
+    Route::patch('/profile', [P::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [P::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__ . '/auth.php';

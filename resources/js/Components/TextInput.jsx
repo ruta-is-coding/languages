@@ -1,4 +1,4 @@
-const TextInput = ({ label, id, placeholder }) => {
+const TextInput = ({ label, id, placeholder, value, onChange }) => {
     return (
         <div className="mb-5">
             <label
@@ -12,6 +12,8 @@ const TextInput = ({ label, id, placeholder }) => {
                 id={id}
                 type="text"
                 placeholder={placeholder}
+                value={value}
+                onChange={onChange}
                 required
             ></input>
         </div>

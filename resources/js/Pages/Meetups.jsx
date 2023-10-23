@@ -10,7 +10,7 @@ const Meetups = ({ meetupsList, countries }) => {
             <h1>Meet new people from all over the world</h1>
             {/* Countries */}
             <div className="row mt-18 mb-7">
-                <CountrySelect countries={countries} />
+                <CountrySelect countries={countries} required={false} />
             </div>
             {/* Meetups list */}
             <div className="grid md:grid-cols-4 gap-x-4 md:gap-y-7 gap-y-10 justify-items-center">

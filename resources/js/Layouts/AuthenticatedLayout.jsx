@@ -51,6 +51,9 @@ export default function Authenticated({ user, header, children }) {
                                 </Dropdown.Trigger>
 
                                 <Dropdown.Content>
+                                    <Dropdown.Link href="/my-meetups">
+                                        My meetups
+                                    </Dropdown.Link>
                                     <Dropdown.Link href={route("profile.edit")}>
                                         Profile
                                     </Dropdown.Link>

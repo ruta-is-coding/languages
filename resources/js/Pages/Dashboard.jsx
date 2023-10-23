@@ -12,7 +12,7 @@ export default function Dashboard({ auth }) {
                     <h1>Welcome on board!</h1>
                     <div className="flex justify-end items-center gap-3 pt-5">
                         <p>Create your own meetup here:</p>
-                        <Button title="Create" link="create" />
+                        <Button title="Create" link="create-a-meetup" />
                     </div>
                 </Container>
             </section>

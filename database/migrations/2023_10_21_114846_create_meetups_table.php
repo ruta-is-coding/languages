@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('date');
             $table->string('photo', 200);
             $table->foreignId('country_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('profile_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
