@@ -1,9 +1,10 @@
 import GuestLayout from "@/Layouts/GuestLayout";
-import { Link } from "@inertiajs/react";
+import { Link, Head } from "@inertiajs/react";
 
 const Contact = () => {
     return (
         <GuestLayout>
+            <Head title="Contact" />
             <h1>Find me on:</h1>
             <section className="flex flex-col md:gap-20 gap-5">
                 <div className="flex md:gap-3 gap-3 md:justify-left flex-col items-center">

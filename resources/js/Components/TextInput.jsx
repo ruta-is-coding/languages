@@ -1,23 +1,21 @@
-import { forwardRef, useEffect, useRef } from 'react';
-
-export default forwardRef(function TextInput({ type = 'text', className = '', isFocused = false, ...props }, ref) {
-    const input = ref ? ref : useRef();
-
-    useEffect(() => {
-        if (isFocused) {
-            input.current.focus();
-        }
-    }, []);
-
+const TextInput = ({ label, id, placeholder }) => {
     return (
-        <input
-            {...props}
-            type={type}
-            className={
-                'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm ' +
-                className
-            }
-            ref={input}
-        />
+        <div className="mb-5">
+            <label
+                className="block text-gray-700 text-sm font-bold mb-3"
+                htmlFor={id}
+            >
+                {label}
+            </label>
+            <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-rose-500 focus:border-rose-500"
+                id={id}
+                type="text"
+                placeholder={placeholder}
+                required
+            ></input>
+        </div>
     );
-});
+};
+
+export default TextInput;

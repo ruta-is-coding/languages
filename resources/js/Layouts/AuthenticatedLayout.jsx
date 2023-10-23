@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Link } from "@inertiajs/react";
 import Dropdown from "@/Components/Dropdown";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import { Link } from "@inertiajs/react";
 import Logo from "@/Components/Logo";
 
 export default function Authenticated({ user, header, children }) {
@@ -14,8 +14,14 @@ export default function Authenticated({ user, header, children }) {
                 <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7">
                     <div className="flex md:items-center md:flex-row md:gap-0 flex-col gap-3 items-start">
                         <Logo />
-                        <h2>Language meetups</h2>
+                        <Link
+                            href="/dashboard"
+                            className="hover:scale-100 hover:text-rose-400"
+                        >
+                            <h2>Language meetups</h2>
+                        </Link>
                     </div>
+
                     {/* Dropdown */}
                     <div className="hidden sm:flex sm:items-center sm:ml-6">
                         <div className="ml-3 relative">

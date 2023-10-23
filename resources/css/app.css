@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {
@@ -10,23 +9,11 @@
     color: #3f3f46;
     font-family: "Lato", sans-serif;
 }
-
-h1 {
-    @apply md:my-10 my-7 text-rose-700 text-center md:text-6xl text-3xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
-}
-a {
-    text-decoration: none;
-    @apply text-rose-500 lg:text-xl text-base font-normal hover:text-rose-700 hover:scale-110;
-}
 main .container {
     @apply mx-auto lg:max-w-3xl px-7;
 }
-p {
-    @apply md:text-left text-justify md:text-xl md:font-normal text-base font-light;
-    max-width: 90ch;
-}
-img {
-    @apply rounded-lg;
+h1 {
+    @apply md:my-10 my-7 text-rose-700 text-center md:text-6xl text-3xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
 }
 h2 {
     @apply text-rose-400 lg:text-4xl md:text-3xl text-2xl font-light lg:text-left text-center;
@@ -34,6 +21,18 @@ h2 {
 h3 {
     @apply text-rose-600 lg:text-2xl text-xl font-medium text-center;
 }
+p {
+    @apply md:text-left text-justify md:text-xl md:font-normal text-base font-light;
+    max-width: 90ch;
+}
+a {
+    text-decoration: none;
+    @apply text-rose-500 lg:text-xl text-base font-normal hover:text-rose-700 hover:scale-110;
+}
+img {
+    @apply rounded-lg;
+}
+
 main .container {
     @apply mx-auto lg:max-w-3xl;
 }

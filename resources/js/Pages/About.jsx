@@ -1,10 +1,11 @@
 import myImage from "@/Images/me.jpg";
 import GuestLayout from "@/Layouts/GuestLayout";
-import { Link } from "@inertiajs/react";
+import { Link, Head } from "@inertiajs/react";
 
 const About = () => {
     return (
         <GuestLayout>
+            <Head title="About me" />
             <h1>About me</h1>
             <section className="grid md:grid-cols-2 md:gap-14 gap-3 md:items-center">
                 <img src={myImage} alt="My photo" className="w-100 my-3" />

@@ -1,26 +1,16 @@
 import GuestLayout from "@/Layouts/GuestLayout";
+import { Head } from "@inertiajs/react";
+import CountrySelect from "@/Components/CountrySelect";
 
 const Meetups = ({ meetupsList, countries }) => {
     console.log(countries);
     return (
         <GuestLayout>
+            <Head title="Meetup list" />
             <h1>Meet new people from all over the world</h1>
             {/* Countries */}
-            <div className="row mt-18">
-                <select className="my-7 block py-2.5 px-3 w-50 text-sm text-rose-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-rose-200 peer">
-                    <option className="text-sm py-3 text-rose-700 hover:bg-rose-100">
-                        All countries
-                    </option>
-                    {countries.map((country) => (
-                        <option
-                            key={country.id}
-                            value={country.id}
-                            className="text-sm py-3 text-rose-700 hover:bg-rose-100"
-                        >
-                            {country.country_name}
-                        </option>
-                    ))}
-                </select>
+            <div className="row mt-18 mb-7">
+                <CountrySelect countries={countries} />
             </div>
             {/* Meetups list */}
             <div className="grid md:grid-cols-4 gap-x-4 md:gap-y-7 gap-y-10 justify-items-center">

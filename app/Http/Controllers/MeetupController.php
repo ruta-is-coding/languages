@@ -19,4 +19,12 @@ class MeetupController extends Controller
             'countries' => $countrylist,
         ]);
     }
+
+    public function meetupForm()
+    {
+        $countrylist = Country::all();
+        return Inertia::render('CreateMeetup', [
+            'countries' => $countrylist,
+        ]);
+    }
 }
