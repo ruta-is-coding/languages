@@ -1,14 +1,18 @@
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const MeetupContext = createContext();
 
 const MeetupProvider = (props) => {
-    console.log(props.urlMeetup);
+    // const [meetupCreate, setMeetupCreate] = useState(null);
+
+    // useEffect(() => {
+    //     if (meetupCreate) console.log(meetupCreate);
+    // }, [meetupCreate]);
+
     return (
         <MeetupContext.Provider
             value={{
-                name: "Meetup",
-                city: "Barcelona",
+                setMeetupCreate,
             }}
         >
             {props.children}
