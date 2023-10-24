@@ -10,8 +10,10 @@ class Meetup extends Model
     protected $fillable = [
         'name',
         'city',
+        'place',
         'description',
         'date',
+        'time',
         'photo',
         'country_id',
         'user_id',

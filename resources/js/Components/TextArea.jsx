@@ -1,4 +1,4 @@
-const TextArea = ({ value, onChange }) => {
+const TextArea = ({ name }) => {
     return (
         <div className="mb-5">
             <label
@@ -11,8 +11,7 @@ const TextArea = ({ value, onChange }) => {
                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500"
                 rows="4"
                 placeholder="Describe your meetup here..."
-                value={value}
-                onChange={onChange}
+                name={name}
                 required
             ></textarea>
         </div>

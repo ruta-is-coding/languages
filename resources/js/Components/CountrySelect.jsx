@@ -1,4 +1,4 @@
-const CountrySelect = ({ countries, required, onChange }) => {
+const CountrySelect = ({ countries, required }) => {
     return (
         <div className="mb-5">
             <label
@@ -9,9 +9,9 @@ const CountrySelect = ({ countries, required, onChange }) => {
             </label>
             <select
                 required={required}
+                name="country_id"
                 id="countries"
                 className="block py-2.5 px-3 w-50 text-sm text-gray-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-                onChange={onChange}
             >
                 <option className="text-sm py-3 hover:bg-rose-100" value="">
                     All countries

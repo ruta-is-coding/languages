@@ -19,11 +19,13 @@ class MeetupFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->text(5),
+            'name' => fake()->sentence(3),
             'city' => fake()->city(),
+            'place' => fake()->sentence(5),
             'photo' => fake()->imageUrl(640, 480, 'animals', true),
             'description' => fake()->sentence(30),
-            'date' => fake()->dateTimeBetween('now', '+1 year')->format('Y-m-d H:i'),
+            'date' => fake()->date('Y-m-d', '+1 year'),
+            'time' => fake()->time('H:i A', 'now'),
             'country_id' => Country::inRandomOrder()->first()->id,
             'user_id' => User::inRandomOrder()->first()->id,
         ];
