@@ -9,6 +9,8 @@ use Inertia\Inertia;
 // Web Routes
 
 Route::get('/meetups', [M::class, 'index'])->name('meetups');
+Route::get('/meetuplanguages', [M::class, 'meetupLanguages'])->name('meetups');
+Route::get('/languagemeetups', [M::class, 'languageMeetups'])->name('meetups');
 Route::inertia('/about', 'About')->name('about');
 Route::inertia('/contact', 'Contact')->name('contact');
 
@@ -28,8 +30,9 @@ Route::get('/dashboard', function () {
 // Authentificated routes (only for logged-in user)
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [P::class, 'edit'])->name('profile.edit');
-    Route::get('/create-a-meetup', [M::class, 'newMeetup'])->name('meetup.new');
-    Route::post('/create-a-meetup', [M::class, 'createMeetup'])->name('meetup.create');
+    Route::get('/meetups/create', [M::class, 'newMeetup'])->name('meetup.new');
+    Route::post('/meetups/create', [M::class, 'createMeetup'])->name('meetup.create');
+    Route::get('/meetups/create/add-languages', [M::class, 'addLanguages'])->name('add.languages');
     Route::get('/my-meetups', [M::class, 'userMeetups'])->name('userMeetups');
     Route::patch('/profile', [P::class, 'update'])->name('profile.update');
     Route::delete('/profile', [P::class, 'destroy'])->name('profile.destroy');

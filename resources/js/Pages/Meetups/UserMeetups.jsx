@@ -2,7 +2,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 import { Head } from "@inertiajs/react";
 
-const UserMeetups = ({ auth }) => {
+const UserMeetups = ({ auth, userMeetups }) => {
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="My meetups" />

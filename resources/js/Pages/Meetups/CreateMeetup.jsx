@@ -48,7 +48,6 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                             />
                             <DatePicker />
                             <TimePicker />
-                            {/* CSFR token */}
                             <input
                                 type="hidden"
                                 name="_token"

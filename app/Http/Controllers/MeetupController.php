@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meetup;
+use App\Models\Language;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -12,8 +13,9 @@ class MeetupController extends Controller
     public function index()
     {
         return Inertia::render('Meetups', [
-            'meetupsList' => Meetup::all(),
+            'meetupsList' => Meetup::with('languages')->get(),
             'countries' => Country::all(),
+            'languages' => Language::all(),
         ]);
     }
 
@@ -36,7 +38,7 @@ class MeetupController extends Controller
 
             Meetup::create($validated);
 
-            return redirect()->route('meetup.new')->with('success', 'Meetup created successfully');
+            return redirect()->route('add.languages')->with('success', 'Meetup created successfully');
         } catch (\Exception $e) {
             return redirect()->route('meetup.new')->with('error', 'Failed to upload the meetup');
         }
@@ -50,9 +52,30 @@ class MeetupController extends Controller
         ]);
     }
 
+    public function meetupLanguages()
+    {
+        $languages = Meetup::where('id', 1)->with('languages')->get();
+    }
+
+    public function addLanguages()
+    {
+        return Inertia::render('Meetups/AddLanguages', [
+            'languages' => Language::all(),
+            'csrf_token' => csrf_token(),
+        ]);
+    }
+
+    public function languageMeetups()
+    {
+        return Language::where('id', 27)->with('meetups')->get();
+    }
+
+
     public function userMeetups()
     {
-        // $meetups=Meetup::find();
-        return Inertia::render('Meetups/UserMeetups');
+        $user_id = auth()->user()->id;
+        return Inertia::render('Meetups/UserMeetups', [
+            'userMeetups' => Meetup::where('user_id', $user_id),
+        ]);
     }
 }

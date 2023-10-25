@@ -14,7 +14,7 @@ class Language extends Model
 
     public function meetups()
     {
-        return $this->belongsToMany(Meetup::class, 'meetup_languages', 'language_id', 'meetup_id');
+        return $this->belongsToMany(Meetup::class, 'meetup_languages');
     }
 
     use HasFactory;
