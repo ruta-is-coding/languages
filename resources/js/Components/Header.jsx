@@ -17,7 +17,6 @@ const Header = ({ auth }) => {
             setBurgerClick(!burgerClick);
             setMenuVisibility("hidden");
         }
-        console.log(menuVisibility);
     };
 
     return (

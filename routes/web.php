@@ -9,8 +9,9 @@ use Inertia\Inertia;
 // Web Routes
 
 Route::get('/meetups', [M::class, 'index'])->name('meetups');
-Route::get('/meetuplanguages', [M::class, 'meetupLanguages'])->name('meetups');
-Route::get('/languagemeetups', [M::class, 'languageMeetups'])->name('meetups');
+Route::get('/meetups/{id}', [M::class, 'singleMeetup']);
+Route::get('/meetuplanguages', [M::class, 'meetupLanguages']);
+Route::get('/languagemeetups', [M::class, 'languageMeetups']);
 Route::inertia('/about', 'About')->name('about');
 Route::inertia('/contact', 'Contact')->name('contact');
 

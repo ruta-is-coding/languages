@@ -7,7 +7,7 @@ const About = () => {
         <GuestLayout>
             <Head title="About me" />
             <h1>About me</h1>
-            <section className="grid md:grid-cols-2 md:gap-14 gap-3 md:items-center">
+            <div className="grid md:grid-cols-2 md:gap-14 gap-3 md:items-center">
                 <img src={myImage} alt="My photo" className="w-100 my-3" />
                 <div>
                     <p className="md:mb-5 mb-3">
@@ -19,9 +19,14 @@ const About = () => {
                         I'm eager to work in the Tech industry and learn more
                         about web and software development.
                     </p>
-                    <Link href="/contact">Checkout my contact info here</Link>
+                    <Link
+                        href="/contact"
+                        className="text-rose-500 lg:text-xl text-base font-normal hover:text-rose-700 hover:scale-110"
+                    >
+                        Checkout my contact info here
+                    </Link>
                 </div>
-            </section>
+            </div>
         </GuestLayout>
     );
 };

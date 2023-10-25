@@ -10,7 +10,7 @@ const Contact = () => {
         <GuestLayout>
             <Head title="Contact" />
             <h1>Find me on:</h1>
-            <section className="flex flex-col md:gap-20 gap-5">
+            <div className="flex flex-col md:gap-20 gap-5">
                 <div className="grid md:grid-cols-4 grid-cols-1 md:gap-3 gap-1">
                     <div className="flex flex-col items-center justify-center">
                         <Link href="https://www.linkedin.com/in/ruta-jurgelyte/">
@@ -52,7 +52,7 @@ const Contact = () => {
                         />
                     </div>
                 </div>
-            </section>
+            </div>
         </GuestLayout>
     );
 };

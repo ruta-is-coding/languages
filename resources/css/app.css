@@ -13,7 +13,7 @@ main .container {
     @apply mx-auto lg:max-w-3xl px-7;
 }
 h1 {
-    @apply md:my-10 my-7 text-rose-700 text-center md:text-6xl text-3xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
+    @apply md:my-20 mt-10 mb-16 text-rose-700 text-center md:text-6xl text-3xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
 }
 h2 {
     @apply text-rose-400 lg:text-4xl md:text-3xl text-2xl font-light lg:text-left text-center;
@@ -25,7 +25,7 @@ p {
     @apply md:text-left text-justify md:text-xl md:font-normal text-base font-light;
     max-width: 90ch;
 }
-a {
+header a {
     text-decoration: none;
     @apply text-rose-500 lg:text-xl text-base font-normal hover:text-rose-700 hover:scale-110;
 }
@@ -35,4 +35,8 @@ img {
 
 main .container {
     @apply mx-auto lg:max-w-3xl;
+}
+
+ul li {
+    @apply mb-2;
 }

@@ -52,11 +52,6 @@ class MeetupController extends Controller
         ]);
     }
 
-    public function meetupLanguages()
-    {
-        $languages = Meetup::where('id', 1)->with('languages')->get();
-    }
-
     public function addLanguages()
     {
         return Inertia::render('Meetups/AddLanguages', [
@@ -65,17 +60,28 @@ class MeetupController extends Controller
         ]);
     }
 
-    public function languageMeetups()
-    {
-        return Language::where('id', 27)->with('meetups')->get();
-    }
-
-
     public function userMeetups()
     {
         $user_id = auth()->user()->id;
         return Inertia::render('Meetups/UserMeetups', [
-            'userMeetups' => Meetup::where('user_id', $user_id),
+            'user_meetups' => Meetup::where('user_id', $user_id)->get(),
         ]);
+    }
+
+    public function singleMeetup($id)
+    {
+        return Inertia::render('Meetups/SingleMeetup', [
+            'meetup' => Meetup::with('languages')->get()->find($id),
+        ]);
+    }
+
+    public function meetupLanguages()
+    {
+        $languages = Meetup::where('id', 1)->with('languages')->get();
+    }
+
+    public function languageMeetups()
+    {
+        return Language::where('id', 27)->with('meetups')->get();
     }
 }

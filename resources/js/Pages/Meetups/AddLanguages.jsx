@@ -3,7 +3,6 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 
 const AddLanguages = ({ auth, languages, csrf_token }) => {
-    console.log(languages);
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Add meetup languages" />
