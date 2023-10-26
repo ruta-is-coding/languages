@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Meetup;
 use App\Models\Language;
+use App\Models\MeetupLanguage;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -12,10 +13,26 @@ class MeetupController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Meetups', [
+        return Inertia::render('Meetups/Meetups', [
             'meetupsList' => Meetup::with('languages')->get(),
             'countries' => Country::all(),
             'languages' => Language::all(),
+        ]);
+    }
+
+    public function newMeetup()
+    {
+        return Inertia::render('Meetups/CreateMeetup', [
+            'countries' => Country::all(),
+            'csrf_token' => csrf_token(),
+        ]);
+    }
+
+    public function chooseLanguages()
+    {
+        return Inertia::render('Meetups/AddLanguages', [
+            'languages' => Language::all(),
+            'csrf_token' => csrf_token(),
         ]);
     }
 
@@ -44,27 +61,28 @@ class MeetupController extends Controller
         }
     }
 
-    public function newMeetup()
+    public function addLanguages(Request $request)
     {
-        return Inertia::render('Meetups/CreateMeetup', [
-            'countries' => Country::all(),
-            'csrf_token' => csrf_token(),
-        ]);
-    }
-
-    public function addLanguages()
-    {
-        return Inertia::render('Meetups/AddLanguages', [
-            'languages' => Language::all(),
-            'csrf_token' => csrf_token(),
-        ]);
+        try {
+            $selectedLanguages = $request->input('language_id', []);
+            $lastMeetupId = Meetup::latest('id')->first()->id;
+            foreach ($selectedLanguages as $languageId) {
+                MeetupLanguage::create([
+                    'meetup_id' => $lastMeetupId,
+                    'language_id' => $languageId,
+                ]);
+            }
+            return redirect()->route('user.meetups')->with('success', 'Languages added successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('choose.languages')->with('error', 'Failed to add languages');
+        }
     }
 
     public function userMeetups()
     {
-        $user_id = auth()->user()->id;
+        $userId = auth()->user()->id;
         return Inertia::render('Meetups/UserMeetups', [
-            'user_meetups' => Meetup::where('user_id', $user_id)->get(),
+            'user_meetups' => Meetup::where('user_id', $userId)->get(),
         ]);
     }
 
@@ -73,15 +91,5 @@ class MeetupController extends Controller
         return Inertia::render('Meetups/SingleMeetup', [
             'meetup' => Meetup::with('languages')->get()->find($id),
         ]);
-    }
-
-    public function meetupLanguages()
-    {
-        $languages = Meetup::where('id', 1)->with('languages')->get();
-    }
-
-    public function languageMeetups()
-    {
-        return Language::where('id', 27)->with('meetups')->get();
     }
 }
