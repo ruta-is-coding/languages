@@ -18,7 +18,7 @@ export default function Authenticated({ user, header, children }) {
                             href="/dashboard"
                             className="hover:scale-100 hover:text-rose-400"
                         >
-                            <h2>Language meetups</h2>
+                            <h2>My dashboard</h2>
                         </Link>
                     </div>
 
@@ -30,7 +30,7 @@ export default function Authenticated({ user, header, children }) {
                                     <span className="inline-flex rounded-md">
                                         <button
                                             type="button"
-                                            className="inline-flex items-center px-3 py-2 border border-transparent text-rose-500 lg:text-xl text-base font-normal leading-4 rounded-md bg-white hover:text-rose-700 focus:outline-none transition ease-in-out duration-150"
+                                            className="inline-flex items-center px-3 py-2 border border-transparent text-rose-500 lg:text-xl text-base font-normal leading-4 rounded-md bg-white focus:outline-none transition ease-in-out duration-150"
                                         >
                                             {user.name}
 

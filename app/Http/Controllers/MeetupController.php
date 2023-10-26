@@ -8,6 +8,7 @@ use App\Models\MeetupLanguage;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class MeetupController extends Controller
 {
@@ -36,7 +37,7 @@ class MeetupController extends Controller
         ]);
     }
 
-    public function createMeetup(Request $request)
+    public function create(Request $request)
     {
         try {
             $validated = $request->validate([
@@ -84,6 +85,47 @@ class MeetupController extends Controller
         return Inertia::render('Meetups/UserMeetups', [
             'user_meetups' => Meetup::where('user_id', $userId)->get(),
         ]);
+    }
+
+    public function edit($id)
+    {
+        return Inertia::render('Meetups/EditMeetup', [
+            'countries' => Country::all(),
+            'meetup' => Meetup::where('id', $id)->get(),
+            'csrf_token' => csrf_token(),
+            'id' => $id,
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $validated = $request->validate([
+                'name' => 'required|min:5|max:200',
+                'city' => 'required|min:3|max:200',
+                'place' => 'required|min:5|max:200',
+                'description' => 'required',
+                'photo' => 'required|mimes:jpeg,png,gif,bmp,tiff,svg',
+                'country_id' => 'required',
+                'date' => 'required',
+                'time' => 'required',
+            ]);
+            $validated['user_id'] = auth()->user()->id;
+            $meetup = Meetup::find($request->id);
+            if ($request->hasFile('photo')) {
+                if ($meetup->photo) {
+                    Storage::disk('public')->delete($meetup->photo);
+                }
+
+                $validated['photo'] = $request->file('photo')->store('meetupPhotos', 'public');
+            }
+
+            $meetup->update($validated);
+
+            return redirect()->route('user.meetups')->with('success', 'Meetup updated successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('user.meetups')->with('error', 'Failed to update the meetup');
+        }
     }
 
     public function singleMeetup($id)
