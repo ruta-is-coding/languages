@@ -1,4 +1,4 @@
-import { Head, router } from "@inertiajs/react";
+import { Head, router, usePage } from "@inertiajs/react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 import TextInput from "@/Components/TextInput";
@@ -8,7 +8,8 @@ import CountrySelect from "@/Components/CountrySelect";
 import DatePicker from "@/Components/DatePicker";
 import TimePicker from "@/Components/TimePicker";
 
-const CreateMeetup = ({ auth, countries, csrf_token }) => {
+const CreateMeetup = ({ auth, countries, csrf_token, error }) => {
+    const { errors } = usePage().props;
     function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);
@@ -21,7 +22,12 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
             <section>
                 <Container>
                     <h1>Create a meetup</h1>
-                    <div className="flex justify-center">
+                    <div className="flex flex-col items-center">
+                        {error && (
+                            <div className="border border-red-400 rounded bg-red-100 px-4 py-3 mb-10 text-red-700 w-full max-w-md">
+                                <p>{error}</p>
+                            </div>
+                        )}
                         <form
                             onSubmit={handleSubmit}
                             encType="multipart/form-data"

@@ -33,14 +33,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [P::class, 'update'])->name('profile.update');
     Route::delete('/profile', [P::class, 'destroy'])->name('profile.destroy');
     Route::prefix('/meetup/create')->group(function () {
-        Route::get('/', [M::class, 'newMeetup'])->name('meetup.new');
-        Route::post('/', [M::class, 'create'])->name('meetup.create');
+        Route::get('/', [M::class, 'create'])->name('meetup.new');
+        Route::post('/', [M::class, 'store'])->name('meetup.create');
         Route::get('/add-languages', [M::class, 'chooseLanguages'])->name('choose.languages');
         Route::post('/add-languages', [M::class, 'addLanguages'])->name('add.languages');
     });
     Route::get('/my-meetups', [M::class, 'userMeetups'])->name('user.meetups');
     Route::get('/my-meetups/edit/{id}', [M::class, 'edit'])->name('edit');
     Route::post('/my-meetups/edit/{id}', [M::class, 'update'])->name('update');
+    Route::delete('/my-meetups/delete/{id}', [M::class, 'destroy'])->name('destroy');
 });
 
 require __DIR__ . '/auth.php';
