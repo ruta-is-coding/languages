@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Head } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 
@@ -24,6 +24,12 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
         }));
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        router.post(`/my-meetups/edit/${id}`, data);
+    }
+
     return (
         // <MeetupProvider>
         <AuthenticatedLayout user={auth.user}>
@@ -33,7 +39,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                     <h1>Edit your meetup: {meetup.name}</h1>
                     <div className="flex justify-center">
                         <form
-                            method="POST"
+                            onSubmit={handleSubmit}
                             className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
                             encType="multipart/form-data"
                         >
