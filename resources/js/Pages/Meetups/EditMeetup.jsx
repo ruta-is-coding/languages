@@ -40,8 +40,8 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                     <div className="flex justify-center">
                         <form
                             onSubmit={handleSubmit}
-                            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
                             encType="multipart/form-data"
+                            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
                         >
                             {/* Meetup title */}
                             <div className="mb-5">

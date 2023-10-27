@@ -1,8 +1,14 @@
-import { Head } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 
 const AddLanguages = ({ auth, languages, csrf_token }) => {
+    function handleSubmit(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        router.post("/meetup/create/add-languages", data);
+    }
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Add meetup languages" />
@@ -11,7 +17,7 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
                     <h1>Choose your meetup languages</h1>
                     <div className="flex justify-center">
                         <form
-                            method="POST"
+                            onSubmit={handleSubmit}
                             encType="multipart/form-data"
                             className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
                         >

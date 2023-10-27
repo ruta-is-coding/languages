@@ -1,4 +1,4 @@
-import { Head } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 import TextInput from "@/Components/TextInput";
@@ -9,8 +9,13 @@ import DatePicker from "@/Components/DatePicker";
 import TimePicker from "@/Components/TimePicker";
 
 const CreateMeetup = ({ auth, countries, csrf_token }) => {
+    function handleSubmit(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        router.post("/meetup/create", data);
+    }
+
     return (
-        // <MeetupProvider>
         <AuthenticatedLayout user={auth.user}>
             <Head title="Create a meetup" />
             <section>
@@ -18,7 +23,7 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                     <h1>Create a meetup</h1>
                     <div className="flex justify-center">
                         <form
-                            method="POST"
+                            onSubmit={handleSubmit}
                             encType="multipart/form-data"
                             className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
                         >
