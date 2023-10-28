@@ -142,7 +142,7 @@ class MeetupController extends Controller
         }
     }
 
-    public function singleMeetup($id)
+    public function info($id)
     {
         return Inertia::render('Meetups/SingleMeetup', [
             'meetup' => Meetup::with('languages')->get()->find($id),

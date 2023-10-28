@@ -10,7 +10,7 @@ const SingleMeetup = ({ meetup }) => {
             <div className="absolute">
                 <Button title="Back" link="/meetups" />
             </div>
-            <h1 className="mt-16">{meetup.name}</h1>
+            <h1 className="mt-16 mb-10 md:mb-16">{meetup.name}</h1>
             <div className="grid md:grid-cols-3 md:gap-14 gap-3">
                 <img
                     src={`/storage/${meetup.photo}`}
@@ -42,8 +42,10 @@ const SingleMeetup = ({ meetup }) => {
                         <li>
                             <span className="font-bold">Languages:</span>{" "}
                             <ul className="list-disc pl-5 mt-2">
-                                {meetup.languages.map((language) => (
-                                    <li>{language.language_name}</li>
+                                {meetup.languages.map((language, index) => (
+                                    <li key={index}>
+                                        {language.language_name}
+                                    </li>
                                 ))}
                             </ul>
                         </li>
