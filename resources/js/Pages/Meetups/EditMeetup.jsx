@@ -15,6 +15,8 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
         time: meetup[0].time,
     });
 
+    console.log(meetup);
+
     function handleChange(e) {
         const key = e.target.id;
         const value = e.target.value;
@@ -31,7 +33,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
     }
 
     return (
-        // <MeetupProvider>
         <AuthenticatedLayout user={auth.user}>
             <Head title="Edit a meetup" />
             <section>
@@ -222,7 +223,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                 </Container>
             </section>
         </AuthenticatedLayout>
-        // </MeetupProvider>
     );
 };
 

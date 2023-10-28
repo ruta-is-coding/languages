@@ -1,6 +1,5 @@
 import { Link, Head } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
-import Button from "@/Components/Button";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
@@ -16,9 +15,18 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 ) : (
                     <GuestLayout>
                         <Head title="Language meetups" />
-                        <h1>Expand your horizons through languages</h1>
+                        <h1>
+                            Expand your horizons through languages,
+                            <br />
+                            <span className="subheader">find new friends</span>
+                        </h1>
                         <div className="row pt-5">
-                            <Button title="Join us!" link={route("register")} />
+                            <Link
+                                href={route("register")}
+                                className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 md:py-4 py-3 md:px-5 px-3 rounded-lg transition ease-in-out duration-150"
+                            >
+                                Join us!
+                            </Link>
                         </div>
                     </GuestLayout>
                 )}

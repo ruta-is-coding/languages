@@ -1,14 +1,17 @@
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
-import Button from "@/Components/Button";
 
-const SingleMeetup = ({ meetup }) => {
-    console.log(meetup);
+const SingleMeetup = ({ meetup, creator }) => {
     return (
         <GuestLayout>
             <Head title="Meetup" />
             <div className="absolute">
-                <Button title="Back" link="/meetups" />
+                <Link
+                    href={route("meetups")}
+                    className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+                >
+                    Back
+                </Link>
             </div>
             <h1 className="mt-16 mb-10 md:mb-16">{meetup.name}</h1>
             <div className="grid md:grid-cols-3 md:gap-14 gap-3">
@@ -48,6 +51,10 @@ const SingleMeetup = ({ meetup }) => {
                                     </li>
                                 ))}
                             </ul>
+                        </li>
+                        <li>
+                            <span className="font-bold">Organizator:</span>{" "}
+                            {creator.email}
                         </li>
                     </ul>
                 </div>

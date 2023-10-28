@@ -37,10 +37,10 @@ const Header = ({ auth }) => {
                     <div
                         className={`md:flex md:flex-row items-end flex-col lg:gap-5 md:gap-3 ${menuVisibility}`}
                     >
-                        <Link href="/">Home</Link>
-                        <Link href="/meetups">Meetups</Link>
-                        <Link href="/contact">Contact</Link>
-                        <Link href="/about">About</Link>
+                        <Link href={route("home")}>Home</Link>
+                        <Link href={route("meetups")}>Meetups</Link>
+                        <Link href={route("contact")}>Contact</Link>
+                        <Link href={route("about")}>About</Link>
                         <Link href={route("login")}>Login</Link>
                         <Link href={route("register")}>Register</Link>
                     </div>

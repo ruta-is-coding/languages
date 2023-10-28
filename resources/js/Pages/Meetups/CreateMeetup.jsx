@@ -8,14 +8,14 @@ import CountrySelect from "@/Components/CountrySelect";
 import DatePicker from "@/Components/DatePicker";
 import TimePicker from "@/Components/TimePicker";
 
-const CreateMeetup = ({ auth, countries, csrf_token, error }) => {
+const CreateMeetup = ({ auth, countries, csrf_token }) => {
     const { errors } = usePage().props;
     function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);
         router.post("/meetup/create", data);
     }
-
+    console.log(errors);
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Create a meetup" />
@@ -23,9 +23,9 @@ const CreateMeetup = ({ auth, countries, csrf_token, error }) => {
                 <Container>
                     <h1>Create a meetup</h1>
                     <div className="flex flex-col items-center">
-                        {error && (
+                        {errors.error && (
                             <div className="border border-red-400 rounded bg-red-100 px-4 py-3 mb-10 text-red-700 w-full max-w-md">
-                                <p>{error}</p>
+                                <p>{errors.error}</p>
                             </div>
                         )}
                         <form

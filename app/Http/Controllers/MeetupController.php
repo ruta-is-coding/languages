@@ -50,11 +50,7 @@ class MeetupController extends Controller
 
             return redirect()->route('add.languages')->with('success', 'Meetup created successfully');
         } catch (\Exception $e) {
-            return Inertia::render('Meetups/CreateMeetup', [
-                'error' => 'Failed to upload the meetup. Please try again.',
-                'countries' => Country::all(),
-                'csrf_token' => csrf_token(),
-            ]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
     public function chooseLanguages()
@@ -94,9 +90,9 @@ class MeetupController extends Controller
 
     public function userMeetups()
     {
-        $userId = auth()->user()->id;
+        $id = auth()->user()->id;
         return Inertia::render('Meetups/UserMeetups', [
-            'user_meetups' => Meetup::where('user_id', $userId)->get(),
+            'user_meetups' => Meetup::where('user_id', $id)->get(),
             'csrf_token' => csrf_token()
         ]);
     }
@@ -144,8 +140,10 @@ class MeetupController extends Controller
 
     public function info($id)
     {
+        $user = Meetup::find($id)->user;
         return Inertia::render('Meetups/SingleMeetup', [
             'meetup' => Meetup::with('languages')->get()->find($id),
+            'creator' => $user
         ]);
     }
 }

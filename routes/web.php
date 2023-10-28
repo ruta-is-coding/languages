@@ -14,9 +14,9 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
 Route::prefix('/meetups')->group(function () {
-    Route::get('/', [M::class, 'index'])->name('meetup.index');
+    Route::get('/', [M::class, 'index'])->name('meetups');
     Route::get('/{id}', [M::class, 'info'])->name('meetup.info');
 });
 Route::inertia('/about', 'About')->name('about');
@@ -41,9 +41,9 @@ Route::middleware('auth')->group(function () {
     // User meetup list
     Route::prefix('/my-meetups')->group(function () {
         Route::get('/', [M::class, 'userMeetups'])->name('user.meetups');
-        Route::get('/edit/{id}', [M::class, 'edit'])->name('edit');
-        Route::post('/edit/{id}', [M::class, 'update'])->name('update');
-        Route::delete('/delete/{id}', [M::class, 'destroy'])->name('destroy');
+        Route::get('/edit/{id}', [M::class, 'edit'])->name('meetup.edit');
+        Route::post('/edit/{id}', [M::class, 'update'])->name('meetup.update');
+        Route::delete('/delete/{id}', [M::class, 'destroy'])->name('meetup.destroy');
     });
 });
 
