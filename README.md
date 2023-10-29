@@ -21,17 +21,17 @@ Puslapio aprašymas: pasinaudojant Laravel karkasu ir React biblioteka, sukurti 
 
 **English**
 
-Website description: create a platform for language exchange meetings in _Europe_ using Laravel framework and React library. Styling is done using Tailwind CSS.
+Website description: create a platform for language exchange meetings in _Europe_ using the Laravel framework and React library. Website stylized using Tailwind CSS.
 
 ### Public domain
 
 1. Anyone can register;
 2. In the Meetups section, you can see all language meetings. When you click on them, you can see more detailed information (meeting name, description, languages, organizer, country, city, date and time);
-3. Meetings can be sorted by country;
-4. Meetings can also be sorted by language.
+3. The user can sort meetings by country;
+4. The user can also sort meetings by language.
 
 ### User area
 
 1. A registered user can create meetings;
-2. The user can edit and delete the meetings that he created;
-3. The user can upload his profile picture, write his name and a date of birth.
+2. The user can edit and delete his own meetings;
+3. The user can upload his profile photo and write his name and date of birth.
