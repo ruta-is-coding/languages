@@ -1,19 +1,34 @@
 import { Head, router } from "@inertiajs/react";
+import { useState, useEffect } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 
-const AddLanguages = ({ auth, languages, csrf_token }) => {
+const AddLanguages = ({ auth, languages, csrf_token, success }) => {
+    const [showSuccess, setShowSuccess] = useState(false);
+    useEffect(() => {
+        setShowSuccess(true);
+        setTimeout(() => {
+            setShowSuccess(false);
+        }, "3000");
+    }, []);
     function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);
         router.post("/meetup/create/add-languages", data);
     }
 
+    console.log(success);
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Add meetup languages" />
             <section>
                 <Container>
+                    {showSuccess && (
+                        <div className="border border-green-400 rounded bg-green-100 px-4 py-3 mb-10 text-green-700 w-full max-w-md">
+                            <p>{success}</p>
+                        </div>
+                    )}
                     <h1>Choose your meetup languages</h1>
                     <div className="flex justify-center">
                         <form

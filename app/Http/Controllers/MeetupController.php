@@ -42,13 +42,15 @@ class MeetupController extends Controller
             'date' => 'required',
             'time' => 'required',
         ]);
-
         $validated['photo'] = $request->file('photo')->store('meetupPhotos', 'public');
         $validated['user_id'] = auth()->user()->id;
-
         Meetup::create($validated);
 
-        return redirect()->route('add.languages')->with('success', 'Meetup created successfully');
+        return Inertia::render('Meetups/AddLanguages', [
+            'success' => 'Meetup created successfully',
+            'languages' => Language::all(),
+            'csrf_token' => csrf_token(),
+        ]);
     }
     public function chooseLanguages()
     {

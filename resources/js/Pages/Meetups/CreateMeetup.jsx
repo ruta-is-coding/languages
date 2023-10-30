@@ -39,19 +39,19 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                                 label="Meetup title"
                                 id="title"
                                 name="name"
-                                placeholder="Enter the title (max 200 characters)"
+                                placeholder="Enter the title (min 5, max 200 characters)"
                             />
                             <TextInput
                                 label="City"
                                 id="city"
                                 name="city"
-                                placeholder="Enter the city (max 200 characters)"
+                                placeholder="Enter the city (min 3, max 200 characters)"
                             />
                             <TextInput
                                 label="Meetup place"
                                 id="place"
                                 name="place"
-                                placeholder="Write your exact meetup place (max 200 characters)"
+                                placeholder="Write exact place (min 5, max 200 characters)"
                             />
                             <TextArea name="description" />
                             <UploadPhoto />
