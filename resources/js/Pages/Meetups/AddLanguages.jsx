@@ -1,32 +1,37 @@
-import { Head, router } from "@inertiajs/react";
+import { Head, router, usePage } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 
-const AddLanguages = ({ auth, languages, csrf_token, success }) => {
-    const [showSuccess, setShowSuccess] = useState(false);
+const AddLanguages = ({ auth, languages, csrf_token }) => {
+    const { flash } = usePage().props;
+    const [showMessage, setShowMessage] = useState(false);
+
     useEffect(() => {
-        setShowSuccess(true);
-        setTimeout(() => {
-            setShowSuccess(false);
-        }, "3000");
+        if (flash.message) {
+            setShowMessage(true);
+            setTimeout(() => {
+                setShowMessage(false);
+            }, "3000");
+        }
     }, []);
+
     function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);
         router.post("/meetup/create/add-languages", data);
     }
 
-    console.log(success);
-
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Add meetup languages" />
             <section>
                 <Container>
-                    {showSuccess && (
-                        <div className="border border-green-400 rounded bg-green-100 px-4 py-3 mb-10 text-green-700 w-full max-w-md">
-                            <p>{success}</p>
+                    {showMessage && (
+                        <div className="flex justify-center">
+                            <div className="border border-green-400 rounded bg-green-100 px-4 py-3 text-green-700 w-full max-w-sm">
+                                <p>{flash.message}</p>
+                            </div>
                         </div>
                     )}
                     <h1>Choose your meetup languages</h1>
@@ -62,7 +67,7 @@ const AddLanguages = ({ auth, languages, csrf_token, success }) => {
                                 value={csrf_token}
                             />
                             <button className="bg-rose-700 hover:bg-rose-600 md:py-2 py-1 md:px-4 px-2 rounded-lg transition ease-in-out duration-150 text-white font-bold hover:text-white">
-                                Create
+                                Add
                             </button>
                         </form>
                     </div>

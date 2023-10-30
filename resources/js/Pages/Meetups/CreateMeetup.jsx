@@ -21,15 +21,22 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
             <Head title="Create a meetup" />
             <section>
                 <Container>
-                    <h1>Create a meetup</h1>
-                    <div className="flex flex-col items-center">
-                        {JSON.stringify(errors) != "{}" && (
-                            <div className="border border-red-400 rounded bg-red-100 px-4 py-3 mb-10 text-red-700 w-full max-w-md">
+                    {JSON.stringify(errors) != "{}" && (
+                        <div className="flex justify-center">
+                            <div className="border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700 w-full max-w-sm">
                                 {Object.keys(errors).map((key, index) => (
-                                    <p key={index}>{errors[key]}</p>
+                                    <p
+                                        key={index}
+                                        className="text-sm md:text-base"
+                                    >
+                                        {errors[key]}
+                                    </p>
                                 ))}
                             </div>
-                        )}
+                        </div>
+                    )}
+                    <h1>Create a meetup</h1>
+                    <div className="flex flex-col items-center">
                         <form
                             onSubmit={handleSubmit}
                             encType="multipart/form-data"

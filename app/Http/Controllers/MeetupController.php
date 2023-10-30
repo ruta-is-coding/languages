@@ -9,7 +9,6 @@ use App\Models\Country;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Session;
 
 class MeetupController extends Controller
 {
@@ -45,12 +44,7 @@ class MeetupController extends Controller
         $validated['photo'] = $request->file('photo')->store('meetupPhotos', 'public');
         $validated['user_id'] = auth()->user()->id;
         Meetup::create($validated);
-
-        return Inertia::render('Meetups/AddLanguages', [
-            'success' => 'Meetup created successfully',
-            'languages' => Language::all(),
-            'csrf_token' => csrf_token(),
-        ]);
+        return redirect()->route('choose.languages')->with('message', 'Meetup created successfully');
     }
     public function chooseLanguages()
     {
@@ -62,19 +56,15 @@ class MeetupController extends Controller
 
     public function addLanguages(Request $request)
     {
-        try {
-            $selectedLanguages = $request->input('language_id', []);
-            $lastMeetupId = Meetup::latest('id')->first()->id;
-            foreach ($selectedLanguages as $languageId) {
-                MeetupLanguage::create([
-                    'meetup_id' => $lastMeetupId,
-                    'language_id' => $languageId,
-                ]);
-            }
-            return redirect()->route('user.meetups')->with('success', 'Languages added successfully');
-        } catch (\Exception $e) {
-            return redirect()->route('choose.languages')->with('error', 'Failed to add languages');
+        $selectedLanguages = $request->input('language_id', []);
+        $lastMeetupId = Meetup::latest('id')->first()->id;
+        foreach ($selectedLanguages as $languageId) {
+            MeetupLanguage::create([
+                'meetup_id' => $lastMeetupId,
+                'language_id' => $languageId,
+            ]);
         }
+        return redirect()->route('user.meetups')->with('message', 'Language/-s added successfully');
     }
 
     public function destroy($id)
@@ -84,7 +74,7 @@ class MeetupController extends Controller
             return response()->json(['message' => 'Meetup not found'], 404);
         }
         $meetup->delete();
-        return redirect()->route('user.meetups')->with('success', 'Meetup deleted successfully');
+        return redirect()->route('user.meetups')->with('message', 'Meetup deleted successfully');
     }
 
     public function userMeetups()
@@ -108,33 +98,27 @@ class MeetupController extends Controller
 
     public function update(Request $request)
     {
-        try {
-            $validated = $request->validate([
-                'name' => 'required|min:5|max:200',
-                'city' => 'required|min:3|max:200',
-                'place' => 'required|min:5|max:200',
-                'description' => 'required',
-                'photo' => 'required|mimes:jpeg,png,gif,bmp,tiff,svg',
-                'country_id' => 'required',
-                'date' => 'required',
-                'time' => 'required',
-            ]);
-            $validated['user_id'] = auth()->user()->id;
-            $meetup = Meetup::find($request->id);
-            if ($request->hasFile('photo')) {
-                if ($meetup->photo) {
-                    Storage::disk('public')->delete($meetup->photo);
-                }
-
-                $validated['photo'] = $request->file('photo')->store('meetupPhotos', 'public');
+        $validated = $request->validate([
+            'name' => 'required|min:5|max:200',
+            'city' => 'required|min:3|max:200',
+            'place' => 'required|min:5|max:200',
+            'description' => 'required',
+            'photo' => 'required|mimes:jpeg,png,gif,bmp,tiff,svg',
+            'country_id' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+        ]);
+        $validated['user_id'] = auth()->user()->id;
+        $meetup = Meetup::find($request->id);
+        if ($request->hasFile('photo')) {
+            if ($meetup->photo) {
+                Storage::disk('public')->delete($meetup->photo);
             }
 
-            $meetup->update($validated);
-
-            return redirect()->route('user.meetups')->with('success', 'Meetup updated successfully');
-        } catch (\Exception $e) {
-            return redirect()->route('user.meetups')->with('error', 'Failed to update the meetup');
+            $validated['photo'] = $request->file('photo')->store('meetupPhotos', 'public');
         }
+        $meetup->update($validated);
+        return redirect()->route('user.meetups')->with('message', 'Meetup updated successfully');
     }
 
     public function info($id)
