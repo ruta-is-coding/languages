@@ -32,26 +32,23 @@ class MeetupController extends Controller
 
     public function store(Request $request)
     {
-        try {
-            $validated = $request->validate([
-                'name' => 'required|min:5|max:200',
-                'city' => 'required|min:3|max:200',
-                'place' => 'required|min:5|max:200',
-                'description' => 'required',
-                'photo' => 'required|mimes:jpeg,png,gif,bmp,tiff,svg',
-                'country_id' => 'required',
-                'date' => 'required',
-                'time' => 'required',
-            ]);
-            $validated['photo'] = $request->file('photo')->store('meetupPhotos', 'public');
-            $validated['user_id'] = auth()->user()->id;
+        $validated = $request->validate([
+            'name' => 'required|min:5|max:200',
+            'city' => 'required|min:3|max:200',
+            'place' => 'required|min:5|max:200',
+            'description' => 'required',
+            'photo' => 'required|mimes:jpeg,png,gif,bmp,tiff,svg',
+            'country_id' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+        ]);
 
-            Meetup::create($validated);
+        $validated['photo'] = $request->file('photo')->store('meetupPhotos', 'public');
+        $validated['user_id'] = auth()->user()->id;
 
-            return redirect()->route('add.languages')->with('success', 'Meetup created successfully');
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        Meetup::create($validated);
+
+        return redirect()->route('add.languages')->with('success', 'Meetup created successfully');
     }
     public function chooseLanguages()
     {

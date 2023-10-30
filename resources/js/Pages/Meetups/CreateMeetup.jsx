@@ -23,9 +23,11 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                 <Container>
                     <h1>Create a meetup</h1>
                     <div className="flex flex-col items-center">
-                        {errors.error && (
+                        {JSON.stringify(errors) != "{}" && (
                             <div className="border border-red-400 rounded bg-red-100 px-4 py-3 mb-10 text-red-700 w-full max-w-md">
-                                <p>{errors.error}</p>
+                                {Object.keys(errors).map((key, index) => (
+                                    <p key={index}>{errors[key]}</p>
+                                ))}
                             </div>
                         )}
                         <form
