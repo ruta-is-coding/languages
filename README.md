@@ -15,7 +15,7 @@ Puslapio aprašymas: pasinaudojant Laravel karkasu ir React biblioteka, sukurti 
 
 1. Registruotas vartotojas gali kurti susitikimus;
 2. Savo sukurtus susitikimus galima redaguoti ir ištrinti;
-3. Vartotojas gali įkelti savo profilio nuotrauką, parašyti vardą ir pavardę, nurodyti gimimo datą.
+3. _*Pasirinktinai*_: Vartotojas gali įkelti savo profilio nuotrauką, parašyti vardą ir pavardę, nurodyti gimimo datą.
 
 ---
 
@@ -34,4 +34,4 @@ Website description: create a platform for language exchange meetings in _Europe
 
 1. A registered user can create meetings;
 2. The user can edit and delete his own meetings;
-3. The user can upload his profile photo and write his name and date of birth.
+3. _*Optionally*_: The user can upload his profile photo and write his name and date of birth.
