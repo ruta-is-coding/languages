@@ -1,7 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import Container from "@/Components/Container";
-import Button from "@/Components/Button";
 
 export default function Dashboard({ auth }) {
     return (
@@ -15,7 +14,12 @@ export default function Dashboard({ auth }) {
                             Create your own meetup{" "}
                             <span className="font-bold">here:</span>
                         </p>
-                        <Button title="Create" link="/meetup/create" />
+                        <Link
+                            href={route("meetup.new")}
+                            className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+                        >
+                            Create
+                        </Link>
                     </div>
                 </Container>
             </section>

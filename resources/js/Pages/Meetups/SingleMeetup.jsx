@@ -1,7 +1,7 @@
 import { Head, Link } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 
-const SingleMeetup = ({ meetup, creator }) => {
+const SingleMeetup = ({ meetup, username, email }) => {
     return (
         <GuestLayout>
             <Head title="Meetup" />
@@ -53,8 +53,16 @@ const SingleMeetup = ({ meetup, creator }) => {
                             </ul>
                         </li>
                         <li>
-                            <span className="font-bold">Organizator:</span>{" "}
-                            {creator.email}
+                            <span className="font-bold text-rose-700">
+                                Organizator:
+                            </span>{" "}
+                            {username}
+                        </li>
+                        <li>
+                            <span className="font-bold text-rose-700">
+                                Contact:
+                            </span>{" "}
+                            {email}
                         </li>
                     </ul>
                 </div>

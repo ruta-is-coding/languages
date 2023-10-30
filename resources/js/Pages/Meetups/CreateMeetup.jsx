@@ -15,15 +15,15 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
         const data = new FormData(e.target);
         router.post("/meetup/create", data);
     }
-    console.log(errors);
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Create a meetup" />
             <section>
                 <Container>
+                    <h1>Create a meetup</h1>
                     {JSON.stringify(errors) != "{}" && (
                         <div className="flex justify-center">
-                            <div className="border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700 w-full max-w-sm">
+                            <div className="border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700 w-full max-w-sm mb-5">
                                 {Object.keys(errors).map((key, index) => (
                                     <p
                                         key={index}
@@ -35,7 +35,6 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                             </div>
                         </div>
                     )}
-                    <h1>Create a meetup</h1>
                     <div className="flex flex-col items-center">
                         <form
                             onSubmit={handleSubmit}
@@ -43,8 +42,8 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                             className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
                         >
                             <TextInput
-                                label="Meetup title"
-                                id="title"
+                                label="Meetup name"
+                                id="name"
                                 name="name"
                                 placeholder="Enter the title (min 5, max 200 characters)"
                             />

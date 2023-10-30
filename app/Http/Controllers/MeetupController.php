@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class MeetupController extends Controller
 {
+    //Display all meetups
     public function index()
     {
         return Inertia::render('Meetups/Meetups', [
@@ -21,6 +22,7 @@ class MeetupController extends Controller
         ]);
     }
 
+    //Create form
     public function create()
     {
         return Inertia::render('Meetups/CreateMeetup', [
@@ -29,6 +31,7 @@ class MeetupController extends Controller
         ]);
     }
 
+    //Create a meetup
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -46,6 +49,8 @@ class MeetupController extends Controller
         Meetup::create($validated);
         return redirect()->route('choose.languages')->with('message', 'Meetup created successfully');
     }
+
+    // Choose meetup languages
     public function chooseLanguages()
     {
         return Inertia::render('Meetups/AddLanguages', [
@@ -54,6 +59,7 @@ class MeetupController extends Controller
         ]);
     }
 
+    //Add meetup languages
     public function addLanguages(Request $request)
     {
         $selectedLanguages = $request->input('language_id', []);
@@ -64,9 +70,10 @@ class MeetupController extends Controller
                 'language_id' => $languageId,
             ]);
         }
-        return redirect()->route('user.meetups')->with('message', 'Language/-s added successfully');
+        return redirect()->route('user.meetups')->with('message', 'Language/s added successfully');
     }
 
+    //Delete a meetup
     public function destroy($id)
     {
         $meetup = Meetup::find($id);
@@ -77,6 +84,7 @@ class MeetupController extends Controller
         return redirect()->route('user.meetups')->with('message', 'Meetup deleted successfully');
     }
 
+    // All user meetups
     public function userMeetups()
     {
         $id = auth()->user()->id;
@@ -86,6 +94,7 @@ class MeetupController extends Controller
         ]);
     }
 
+    //Edit form
     public function edit($id)
     {
         return Inertia::render('Meetups/EditMeetup', [
@@ -96,6 +105,7 @@ class MeetupController extends Controller
         ]);
     }
 
+    // Update a meetup
     public function update(Request $request)
     {
         $validated = $request->validate([
@@ -121,12 +131,14 @@ class MeetupController extends Controller
         return redirect()->route('user.meetups')->with('message', 'Meetup updated successfully');
     }
 
+    // Meetup info
     public function info($id)
     {
         $user = Meetup::find($id)->user;
         return Inertia::render('Meetups/SingleMeetup', [
             'meetup' => Meetup::with('languages')->get()->find($id),
-            'creator' => $user
+            'email' => $user->email,
+            'username' => $user->name,
         ]);
     }
 }

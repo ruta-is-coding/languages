@@ -1,4 +1,4 @@
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import CountryFilter from "@/Components/CountryFilter";
@@ -45,6 +45,14 @@ const Meetups = ({ meetupsList, countries, languages }) => {
     return (
         <GuestLayout>
             <Head title="Meetup list" />
+            <div className="absolute">
+                <Link
+                    href="/"
+                    className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+                >
+                    Home
+                </Link>
+            </div>
             <h1>Meet new people from all over the world</h1>
             {/* Countries */}
             <div className="md:flex gap-5 mt-18 mb-7">
