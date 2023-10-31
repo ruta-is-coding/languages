@@ -1,10 +1,15 @@
 import { router } from "@inertiajs/react";
-const DeleteModal = ({ deleteId, csrf_token, setShowModal }) => {
+
+const DeleteModal = ({ deleteId, csrf_token, setShowModal, setLoading }) => {
     function handleDelete(e) {
         e.preventDefault();
+        setLoading(true);
         const data = new FormData(e.target);
-        setShowModal(false);
         router.delete(`/my-meetups/delete/${deleteId}`, data);
+        setShowModal(false);
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
     }
     return (
         <div

@@ -12,7 +12,7 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
             setShowMessage(true);
             setTimeout(() => {
                 setShowMessage(false);
-            }, "3000");
+            }, "1500");
         }
     }, []);
 

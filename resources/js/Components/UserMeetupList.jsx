@@ -3,10 +3,13 @@ import { Link } from "@inertiajs/react";
 import DeleteIcon from "@/Icons/DeleteIcon";
 import EditIcon from "@/Icons/EditIcon";
 import DeleteModal from "./DeleteModal";
+import Loader from "./Loader/Loader";
 
 const UserMeetupList = ({ meetups, csrf_token }) => {
     const [showModal, setShowModal] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
+    const [loading, setLoading] = useState(false);
+    console.log(loading);
 
     return (
         <>
@@ -16,8 +19,12 @@ const UserMeetupList = ({ meetups, csrf_token }) => {
                     deleteId={deleteId}
                     csrf_token={csrf_token}
                     setShowModal={setShowModal}
+                    loading={loading}
+                    setLoading={setLoading}
                 />
             )}
+            {/* Loader */}
+            {loading && <Loader />}
             {/* Meetup list */}
             <div className="grid md:grid-cols-3 gap-x-3 gap-y-7 justify-items-center">
                 {meetups.map((meetup) => (
