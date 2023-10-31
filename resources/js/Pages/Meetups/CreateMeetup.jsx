@@ -21,6 +21,7 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
             <section>
                 <Container>
                     <h1>Create a meetup</h1>
+                    {/* Error message */}
                     {JSON.stringify(errors) != "{}" && (
                         <div className="flex justify-center">
                             <div className="border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700 w-full max-w-sm mb-5">
@@ -35,6 +36,7 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                             </div>
                         </div>
                     )}
+                    {/* Create form */}
                     <div className="flex flex-col items-center">
                         <form
                             onSubmit={handleSubmit}

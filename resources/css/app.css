@@ -39,7 +39,12 @@ img {
 main .container {
     @apply mx-auto lg:max-w-3xl;
 }
-
-ul li {
-    @apply mb-2;
+.meetup-info ol li {
+    @apply md:text-xl md:font-normal text-base font-light;
+}
+.meetup-info p {
+    @apply mb-4;
+}
+.meetup-info span {
+    @apply py-1 px-2 font-medium bg-rose-200 rounded-lg text-rose-700 mr-1;
 }

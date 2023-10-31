@@ -16,8 +16,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
         time: meetup[0].time,
     });
 
-    console.log(meetup);
-
+    //Change values
     function handleChange(e) {
         const key = e.target.id;
         const value = e.target.value;
@@ -27,6 +26,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
         }));
     }
 
+    //Submit editing form
     function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);

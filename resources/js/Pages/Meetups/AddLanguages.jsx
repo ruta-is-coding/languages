@@ -7,6 +7,7 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
     const { flash } = usePage().props;
     const [showMessage, setShowMessage] = useState(false);
 
+    // Display success message
     useEffect(() => {
         if (flash.message) {
             setShowMessage(true);
@@ -16,6 +17,7 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
         }
     }, []);
 
+    // Add checked languages
     function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);

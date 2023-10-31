@@ -9,7 +9,6 @@ const UserMeetupList = ({ meetups, csrf_token }) => {
     const [showModal, setShowModal] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
     const [loading, setLoading] = useState(false);
-    console.log(loading);
 
     return (
         <>
@@ -19,7 +18,6 @@ const UserMeetupList = ({ meetups, csrf_token }) => {
                     deleteId={deleteId}
                     csrf_token={csrf_token}
                     setShowModal={setShowModal}
-                    loading={loading}
                     setLoading={setLoading}
                 />
             )}
