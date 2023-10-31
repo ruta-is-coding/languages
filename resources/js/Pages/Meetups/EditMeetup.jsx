@@ -74,7 +74,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     type="text"
                                     value={values.name}
                                     onChange={handleChange}
-                                    placeholder="Enter the title (max 200 characters)"
+                                    placeholder="Enter the title"
                                     required
                                 ></input>
                             </div>
@@ -93,7 +93,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     type="text"
                                     value={values.city}
                                     onChange={handleChange}
-                                    placeholder="Enter the city (max 200 characters)"
+                                    placeholder="Enter the city"
                                     required
                                 ></input>
                             </div>
@@ -112,7 +112,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     type="text"
                                     value={values.place}
                                     onChange={handleChange}
-                                    placeholder="Write your exact meetup place (max 200 characters)"
+                                    placeholder="Write your exact meetup place"
                                     required
                                 ></input>
                             </div>

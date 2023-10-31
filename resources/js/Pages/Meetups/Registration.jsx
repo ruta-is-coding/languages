@@ -27,7 +27,7 @@ const Registration = ({ meetup, csrf_token }) => {
                         label="Your email"
                         id="email"
                         name="email"
-                        placeholder="Enter your email (max 200 characters)"
+                        placeholder="Enter your email"
                     />
                     <TextInput
                         label="Full name"
