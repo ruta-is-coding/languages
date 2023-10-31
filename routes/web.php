@@ -18,6 +18,8 @@ Route::get('/', function () {
 Route::prefix('/meetups')->group(function () {
     Route::get('/', [M::class, 'index'])->name('meetups');
     Route::get('/{id}', [M::class, 'info'])->name('meetup.info');
+    Route::get('/{id}/register', [M::class, 'registration'])->name('registration');
+    Route::post('/{id}/register', [M::class, 'register'])->name('register');
 });
 Route::inertia('/about', 'About')->name('about');
 Route::inertia('/contact', 'Contact')->name('contact');

@@ -16,10 +16,10 @@ h1 {
     @apply md:my-20 mt-10 mb-16 text-rose-700 text-center md:text-6xl sm:text-5xl text-3xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
 }
 .subheader {
-    @apply md:my-20 mt-10 mb-16 text-rose-600 text-center md:text-4xl text-2xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
+    @apply md:my-20 mt-10 mb-16 text-rose-600 text-center md:text-3xl text-2xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
 }
 h2 {
-    @apply text-rose-400 lg:text-4xl md:text-3xl text-2xl font-light lg:text-left text-center;
+    @apply text-rose-400 lg:text-4xl md:text-4xl text-2xl font-light lg:text-left text-center;
 }
 h3 {
     @apply text-rose-600 lg:text-2xl text-xl font-medium text-center;

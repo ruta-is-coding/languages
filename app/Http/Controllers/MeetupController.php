@@ -141,4 +141,16 @@ class MeetupController extends Controller
             'username' => $user->name,
         ]);
     }
+
+    public function registration($id)
+    {
+        $meetup = Meetup::find($id);
+        return Inertia::render('Meetups/Registration', [
+            'meetup' => $meetup,
+            'csrf_token' => csrf_token(),
+        ]);
+    }
+    public function register(Request $request)
+    {
+    }
 }

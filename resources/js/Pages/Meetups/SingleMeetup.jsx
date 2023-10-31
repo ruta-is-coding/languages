@@ -19,9 +19,19 @@ const SingleMeetup = ({ meetup, username, email }) => {
                     <img
                         src={`/storage/${meetup.photo}`}
                         alt="Meetup photo"
-                        className="w-100 my-3"
+                        className="w-100 mb-5"
                     />
+                    <div className="flex justify-end items-center gap-3">
+                        <p>Want to participate?</p>
+                        <Link
+                            href={`/meetups/${meetup.id}/register`}
+                            className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+                        >
+                            Join
+                        </Link>
+                    </div>
                 </div>
+
                 <div className="md:pl-0 meetup-info col-span-2">
                     <p>
                         <span>Description:</span> {meetup.description}
@@ -38,14 +48,14 @@ const SingleMeetup = ({ meetup, username, email }) => {
                     <p>
                         <span>Time:</span> {meetup.time}
                     </p>
-                    <p>
+                    <div className="mb-4">
                         <span>Languages:</span>{" "}
                         <ol className="list-decimal pl-10 mt-2">
                             {meetup.languages.map((language, index) => (
                                 <li key={index}>{language.language_name}</li>
                             ))}
                         </ol>
-                    </p>
+                    </div>
                     <p>
                         <span>Organizator:</span> {username}
                     </p>
