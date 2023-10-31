@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Meetup;
 use App\Models\Language;
 use App\Models\MeetupLanguage;
+use App\Models\MeetupParticipant;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -150,7 +151,14 @@ class MeetupController extends Controller
             'csrf_token' => csrf_token(),
         ]);
     }
-    public function register(Request $request)
+    public function register(Request $request, $id)
     {
+        $validated = $request->validate([
+            'full_name' => 'required|min:5|max:200',
+            'email' => 'required|min:3|max:200',
+        ]);
+        $validated['meetup_id'] = $id;
+        MeetupParticipant::create($validated);
+        return redirect()->route('meetups')->with('message', 'You have registered successfully');
     }
 }

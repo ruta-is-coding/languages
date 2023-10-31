@@ -8,7 +8,7 @@ const SingleMeetup = ({ meetup, username, email }) => {
             <div className="absolute">
                 <Link
                     href={route("meetups")}
-                    className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+                    className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-400 hover:bg-rose-500 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
                 >
                     Back
                 </Link>
@@ -25,7 +25,7 @@ const SingleMeetup = ({ meetup, username, email }) => {
                         <p>Want to participate?</p>
                         <Link
                             href={`/meetups/${meetup.id}/register`}
-                            className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+                            className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-2 md:px-5 px-3 rounded-lg transition ease-in-out duration-150"
                         >
                             Join
                         </Link>

@@ -6,16 +6,15 @@ const Registration = ({ meetup, csrf_token }) => {
     function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);
-        // router.post(`/meetups/${meetup.id}/register`, data);
-        console.log(data);
+        router.post(`/meetups/${meetup.id}/register`, data);
     }
     return (
         <GuestLayout>
-            <Head title="Register for a meetup" />
-            <h2 className="text-center mt-20 mb-14 leading-relaxed">
-                Register for a meetup
+            <Head title="Register to a meetup" />
+            <h2 className="text-center lg:text-5xl md:text-4xl mt-20 mb-14 leading-loose">
+                Register to:
                 <br />
-                <span className="subheader">{meetup.name}</span>
+                {meetup.name}
             </h2>
             <div className="flex flex-col items-center">
                 <form
