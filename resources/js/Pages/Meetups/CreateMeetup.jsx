@@ -63,10 +63,7 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                             />
                             <TextArea name="description" />
                             <UploadPhoto />
-                            <CountrySelect
-                                countries={countries}
-                                required={true}
-                            />
+                            <CountrySelect countries={countries} />
                             <DatePicker />
                             <TimePicker />
                             <input

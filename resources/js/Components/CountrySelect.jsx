@@ -1,4 +1,4 @@
-const CountrySelect = ({ countries, required }) => {
+const CountrySelect = ({ countries }) => {
     return (
         <div className="mb-5">
             <label
@@ -8,7 +8,6 @@ const CountrySelect = ({ countries, required }) => {
                 Select a country
             </label>
             <select
-                required={required}
                 name="country_id"
                 id="countries"
                 className="block py-2.5 px-3 w-50 text-sm text-gray-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"

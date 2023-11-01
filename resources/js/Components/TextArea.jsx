@@ -12,7 +12,6 @@ const TextArea = ({ name }) => {
                 rows="4"
                 placeholder="Describe your meetup here..."
                 name={name}
-                required
             ></textarea>
         </div>
     );

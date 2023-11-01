@@ -13,7 +13,6 @@ const TextInput = ({ label, id, placeholder, name }) => {
                 type="text"
                 name={name}
                 placeholder={placeholder}
-                required
             ></input>
         </div>
     );

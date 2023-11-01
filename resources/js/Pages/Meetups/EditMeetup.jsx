@@ -75,7 +75,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     value={values.name}
                                     onChange={handleChange}
                                     placeholder="Enter the title"
-                                    required
                                 ></input>
                             </div>
                             {/* City */}
@@ -94,7 +93,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     value={values.city}
                                     onChange={handleChange}
                                     placeholder="Enter the city"
-                                    required
                                 ></input>
                             </div>
                             {/* Meetup place */}
@@ -113,7 +111,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     value={values.place}
                                     onChange={handleChange}
                                     placeholder="Write your exact meetup place"
-                                    required
                                 ></input>
                             </div>
                             {/* Meetup description */}
@@ -132,7 +129,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     name="description"
                                     value={values.description}
                                     onChange={handleChange}
-                                    required
                                 ></textarea>
                             </div>
                             {/* Photo */}
@@ -150,7 +146,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     name="photo"
                                     value={values.photo}
                                     onChange={handleChange}
-                                    required
                                 />
                             </div>
                             {/* Country */}
@@ -165,7 +160,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     id="country_id"
                                     name="country_id"
                                     className="block py-2.5 px-3 w-50 text-sm text-gray-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-                                    required
                                     value={values.country_id}
                                     onChange={handleChange}
                                 >
@@ -201,7 +195,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     value={values.date}
                                     onChange={handleChange}
                                     className="block w-full px-3 py-2 border rounded-md text-gray-700 focus:ring-rose-500 focus:border-rose-500"
-                                    required
                                 ></input>
                             </div>
                             {/* Time */}
@@ -219,7 +212,6 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                     value={values.time}
                                     onChange={handleChange}
                                     className="block w-full px-3 py-2 border rounded-md text-gray-700 focus:ring-rose-500 focus:border-rose-500"
-                                    required
                                 ></input>
                             </div>
                             <input
