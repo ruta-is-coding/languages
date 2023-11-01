@@ -4,16 +4,31 @@ import GuestLayout from "@/Layouts/GuestLayout";
 import CountryFilter from "@/Components/CountryFilter";
 import LanguageFilter from "@/Components/LanguageFilter";
 import MeetupList from "@/Components/MeetupList";
+import Success from "@/Components/Success";
+import Pagination from "@/Components/Pagination";
 
 const Meetups = ({ meetupsList, countries, languages }) => {
     const { flash } = usePage().props;
     const [showMessage, setShowMessage] = useState(false);
-    const originalMeetups = meetupsList;
-    const [meetups, setMeetups] = useState(meetupsList);
     const [selectedCountryId, setSelectedCountryId] = useState(null);
     const [selectedLanguageId, setSelectedLanguageId] = useState(null);
+    const originalMeetups = meetupsList;
+    const [meetups, setMeetups] = useState(meetupsList);
+    const [currentPage, setCurrentPage] = useState(1);
+    const cardsPerPage = 12;
+    const lastCardIndex = currentPage * cardsPerPage;
+    const firstCardIndex = lastCardIndex - cardsPerPage;
+    const currentCards = meetups.slice(firstCardIndex, lastCardIndex);
 
     useEffect(() => {
+        filterMeetups();
+    }, [selectedCountryId, originalMeetups, selectedLanguageId]);
+
+    useEffect(() => {
+        displaySuccessMessage();
+    }, []);
+
+    const filterMeetups = () => {
         // Filter by both country and language
         if (selectedCountryId && selectedLanguageId) {
             const filteredMeetups = originalMeetups.filter(
@@ -42,52 +57,52 @@ const Meetups = ({ meetupsList, countries, languages }) => {
         } else {
             setMeetups(originalMeetups);
         }
-    }, [selectedCountryId, originalMeetups, selectedLanguageId]);
+    };
 
-    // Display success message
-    useEffect(() => {
+    const displaySuccessMessage = () => {
         if (flash.message) {
             setShowMessage(true);
             setTimeout(() => {
                 setShowMessage(false);
-            }, "1500");
+            }, 1500);
         }
-    }, []);
+    };
 
     return (
         <GuestLayout>
             <Head title="Meetup list" />
-            {showMessage && (
-                <div className="flex justify-center">
-                    <div className="border border-green-400 rounded bg-green-100 px-4 py-3 text-green-700 w-full max-w-sm">
-                        <p>{flash.message}</p>
-                    </div>
-                </div>
-            )}
-            <div className="absolute">
-                <Link
-                    href="/"
-                    className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-400 hover:bg-rose-500 py-3 md:px-4 px-3 rounded-lg transition ease-in-out duration-150"
-                >
-                    Home
-                </Link>
-            </div>
-
+            <Link
+                href="/"
+                className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-400 hover:bg-rose-500 py-3 md:px-4 px-3 rounded-lg transition ease-in-out duration-150"
+            >
+                Home
+            </Link>
+            {showMessage && <Success flash={flash} />}
             <h1>Meet new people from all over the world</h1>
-            {/* Countries */}
+            {/* Filter */}
             <div className="md:flex gap-5 mt-20 mb-7">
                 <CountryFilter
                     countries={countries}
                     setSelectedCountryId={setSelectedCountryId}
                 />
-                {/* Languages */}
                 <LanguageFilter
                     languages={languages}
                     setSelectedLanguageId={setSelectedLanguageId}
                 />
             </div>
-            {/* Meetup list */}
-            <MeetupList meetups={meetups} />
+            <MeetupList meetups={currentCards} />
+            {meetups.length !== 0 ? (
+                <Pagination
+                    totalCards={meetups.length}
+                    cardsPerPage={cardsPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                />
+            ) : (
+                <h3 className="my-10">
+                    No meetups for this criteria (so far) &#128532;
+                </h3>
+            )}
         </GuestLayout>
     );
 };

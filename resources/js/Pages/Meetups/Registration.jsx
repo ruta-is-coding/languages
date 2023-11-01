@@ -1,8 +1,10 @@
-import { Head, router } from "@inertiajs/react";
+import { Head, router, usePage } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import TextInput from "@/Components/TextInput";
+import Errors from "@/Components/Error";
 
 const Registration = ({ meetup, csrf_token }) => {
+    const { errors } = usePage().props;
     function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);
@@ -16,6 +18,9 @@ const Registration = ({ meetup, csrf_token }) => {
                 <br />
                 {meetup.name}
             </h2>
+            {/* Error messages */}
+            <Errors errors={errors} />
+            {/* Registration form */}
             <div className="flex flex-col items-center">
                 <form
                     onSubmit={handleSubmit}

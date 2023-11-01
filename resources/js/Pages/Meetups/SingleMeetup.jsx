@@ -5,14 +5,12 @@ const SingleMeetup = ({ meetup, username, email }) => {
     return (
         <GuestLayout>
             <Head title="Meetup" />
-            <div className="absolute">
-                <Link
-                    href={route("meetups")}
-                    className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-400 hover:bg-rose-500 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
-                >
-                    Back
-                </Link>
-            </div>
+            <Link
+                href={route("meetups")}
+                className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-400 hover:bg-rose-500 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+            >
+                Back
+            </Link>
             <h1 className="mt-16 mb-10 md:mb-16">{meetup.name}</h1>
             <div className="grid md:grid-cols-5 md:gap-14 gap-3">
                 <div className="col-span-3">

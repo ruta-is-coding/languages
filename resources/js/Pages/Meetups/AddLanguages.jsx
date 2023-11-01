@@ -2,6 +2,7 @@ import { Head, router, usePage } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
+import Success from "@/Components/Success";
 
 const AddLanguages = ({ auth, languages, csrf_token }) => {
     const { flash } = usePage().props;
@@ -29,13 +30,7 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
             <Head title="Add meetup languages" />
             <section>
                 <Container>
-                    {showMessage && (
-                        <div className="flex justify-center">
-                            <div className="border border-green-400 rounded bg-green-100 px-4 py-3 text-green-700 w-full max-w-sm">
-                                <p>{flash.message}</p>
-                            </div>
-                        </div>
-                    )}
+                    {showMessage && <Success flash={flash} />}
                     <h1>Choose your meetup languages</h1>
                     <div className="flex justify-center">
                         <form

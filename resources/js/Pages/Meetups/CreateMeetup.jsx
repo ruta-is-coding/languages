@@ -7,6 +7,7 @@ import UploadPhoto from "@/Components/UploadPhoto";
 import CountrySelect from "@/Components/CountrySelect";
 import DatePicker from "@/Components/DatePicker";
 import TimePicker from "@/Components/TimePicker";
+import Errors from "@/Components/Error";
 
 const CreateMeetup = ({ auth, countries, csrf_token }) => {
     const { errors } = usePage().props;
@@ -21,21 +22,8 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
             <section>
                 <Container>
                     <h1>Create a meetup</h1>
-                    {/* Error message */}
-                    {JSON.stringify(errors) != "{}" && (
-                        <div className="flex justify-center">
-                            <div className="border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700 w-full max-w-sm mb-5">
-                                {Object.keys(errors).map((key, index) => (
-                                    <p
-                                        key={index}
-                                        className="text-sm md:text-base"
-                                    >
-                                        {errors[key]}
-                                    </p>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+                    {/* Error messages */}
+                    <Errors errors={errors} />
                     {/* Create form */}
                     <div className="flex flex-col items-center">
                         <form

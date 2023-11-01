@@ -2,13 +2,10 @@ import { Link } from "@inertiajs/react";
 
 const MeetupList = ({ meetups }) => {
     return (
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-x-4 md:gap-y-7 gap-y-1 justify-items-center">
+        <div className="cardGrid">
             {meetups.map((meetup) => (
-                <div
-                    className="md:col-span-1 flex flex-col gap-2 items-center mt-3"
-                    key={meetup.id}
-                >
-                    <div className="md:h-28 md:w-40">
+                <div className="card" key={meetup.id}>
+                    <div className="md:w-full md:h-40">
                         <Link href={`/meetups/${meetup.id}`}>
                             <img
                                 src={`/storage/${meetup.photo}`}
@@ -17,10 +14,18 @@ const MeetupList = ({ meetups }) => {
                             />
                         </Link>
                     </div>
-                    <div>
-                        <h3>{meetup.name}</h3>
-                        <p className="text-center">City: {meetup.city}</p>
-                        <p className="text-center">{meetup.date}</p>
+                    <div className="grid grid-rows-2 gap-y-5 h-28 items-center mt-3">
+                        <h3 className="md:text-lg text-2xl my-1 row-span-1">
+                            {meetup.name}
+                        </h3>
+                        <div className="description row-span-1">
+                            <p className="text-center text-base">
+                                City: {meetup.city}
+                            </p>
+                            <p className="text-center text-base">
+                                {meetup.date}
+                            </p>
+                        </div>
                     </div>
                 </div>
             ))}

@@ -3,10 +3,18 @@ import { useState, useEffect } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 import UserMeetupList from "@/Components/UserMeetupList";
+import Success from "@/Components/Success";
+import Pagination from "@/Components/Pagination";
 
 const UserMeetups = ({ auth, user_meetups }) => {
     const { flash } = usePage().props;
     const [showMessage, setShowMessage] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const cardsPerPage = 12;
+    const lastCardIndex = currentPage * cardsPerPage;
+    const firstCardIndex = lastCardIndex - cardsPerPage;
+    const meetups = user_meetups;
+    const currentCards = meetups.slice(firstCardIndex, lastCardIndex);
 
     useEffect(() => {
         if (flash.message) {
@@ -23,15 +31,21 @@ const UserMeetups = ({ auth, user_meetups }) => {
 
             <section>
                 <Container>
-                    {showMessage && (
-                        <div className="flex justify-center">
-                            <div className="border border-green-400 rounded bg-green-100 px-4 py-3 text-green-700 w-full max-w-sm">
-                                <p>{flash.message}</p>
-                            </div>
-                        </div>
-                    )}
+                    {showMessage && <Success flash={flash} />}
                     <h1>My meetups</h1>
-                    <UserMeetupList meetups={user_meetups} />
+                    <UserMeetupList meetups={currentCards} />
+                    {meetups.length !== 0 ? (
+                        <Pagination
+                            totalCards={meetups.length}
+                            cardsPerPage={cardsPerPage}
+                            setCurrentPage={setCurrentPage}
+                            currentPage={currentPage}
+                        />
+                    ) : (
+                        <h3 className="my-10">
+                            No meetups for this criteria (so far) &#128532;
+                        </h3>
+                    )}
                     <div className="flex justify-end items-center gap-3 mt-14">
                         <p>Create another meetup</p>
                         <Link

@@ -12,7 +12,6 @@ const UserMeetupList = ({ meetups, csrf_token }) => {
 
     return (
         <>
-            {/* Modal */}
             {showModal && (
                 <DeleteModal
                     deleteId={deleteId}
@@ -21,15 +20,11 @@ const UserMeetupList = ({ meetups, csrf_token }) => {
                     setLoading={setLoading}
                 />
             )}
-            {/* Loader */}
             {loading && <Loader />}
             {/* Meetup list */}
-            <div className="grid md:grid-cols-3 gap-x-3 gap-y-7 justify-items-center">
+            <div className="cardGrid">
                 {meetups.map((meetup) => (
-                    <div
-                        className="col-span-1 w-full flex flex-col gap-2 items-center relative"
-                        key={meetup.id}
-                    >
+                    <div className="card" key={meetup.id}>
                         <div className="md:w-full md:h-44 mt-10">
                             <img
                                 src={`/storage/${meetup.photo}`}

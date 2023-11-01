@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Head, router, usePage } from "@inertiajs/react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
+import Errors from "@/Components/Error";
 
 const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
     const { errors } = usePage().props;
@@ -39,20 +40,9 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
             <section>
                 <Container>
                     <h1>Edit your meetup: {meetup.name}</h1>
-                    {JSON.stringify(errors) != "{}" && (
-                        <div className="flex justify-center">
-                            <div className="border border-red-400 rounded bg-red-100 px-4 py-3 text-red-700 w-full max-w-sm mb-5">
-                                {Object.keys(errors).map((key, index) => (
-                                    <p
-                                        key={index}
-                                        className="text-sm md:text-base"
-                                    >
-                                        {errors[key]}
-                                    </p>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+                    {/* Error messages */}
+                    <Errors errors={errors} />
+                    {/* Editing form */}
                     <div className="flex justify-center">
                         <form
                             onSubmit={handleSubmit}
