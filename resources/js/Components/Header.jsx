@@ -21,7 +21,7 @@ const Header = ({ auth }) => {
 
     return (
         <header className="border-b-2 md:py-8 py-5 md:px-0 px-1 w-full">
-            <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7">
+            <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7 mx-auto">
                 <div className="flex md:items-center md:flex-row md:gap-0 flex-col gap-3 items-start">
                     <Logo />
                     <h2 className="md:text-center text-left">
@@ -39,8 +39,8 @@ const Header = ({ auth }) => {
                     >
                         <Link href={route("home")}>Home</Link>
                         <Link href={route("meetups")}>Meetups</Link>
-                        <Link href={route("contact")}>Contact</Link>
                         <Link href={route("about")}>About</Link>
+                        <Link href={route("contact")}>Contact</Link>
                         <Link href={route("login")}>Login</Link>
                         <Link href={route("register")}>Register</Link>
                     </div>

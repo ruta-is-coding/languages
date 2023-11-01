@@ -13,7 +13,7 @@ main .container {
     @apply mx-auto lg:max-w-3xl px-7;
 }
 h1 {
-    @apply md:my-20 mt-10 mb-16 text-rose-700 text-center md:text-6xl sm:text-5xl text-3xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
+    @apply my-8 text-rose-700 text-center md:text-6xl sm:text-5xl text-3xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
 }
 .subheader {
     @apply md:my-20 mt-10 mb-16 text-rose-600 text-center md:text-3xl text-2xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;

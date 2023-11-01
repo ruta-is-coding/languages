@@ -71,14 +71,10 @@ const Meetups = ({ meetupsList, countries, languages }) => {
     return (
         <GuestLayout>
             <Head title="Meetup list" />
-            <Link
-                href="/"
-                className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-400 hover:bg-rose-500 py-3 md:px-4 px-3 rounded-lg transition ease-in-out duration-150"
-            >
-                Home
-            </Link>
             {showMessage && <Success flash={flash} />}
-            <h1>Meet new people from all over the world</h1>
+            <h1 className="animate__animated animate__fadeIn animate__slower">
+                Meet new people from all over the world
+            </h1>
             {/* Filter */}
             <div className="md:flex gap-5 mt-20 mb-7">
                 <CountryFilter

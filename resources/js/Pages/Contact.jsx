@@ -9,7 +9,9 @@ const Contact = () => {
     return (
         <GuestLayout>
             <Head title="Contact" />
-            <h1>Find me on:</h1>
+            <h1 className="animate__animated animate__fadeIn animate__slower">
+                Find me on:
+            </h1>
             <div className="flex flex-col md:gap-20 gap-5">
                 <div className="grid md:grid-cols-4 grid-cols-1 md:gap-3 gap-1">
                     <div className="flex flex-col items-center justify-center">

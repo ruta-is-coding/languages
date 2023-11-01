@@ -6,7 +6,9 @@ const About = () => {
     return (
         <GuestLayout>
             <Head title="About me" />
-            <h1>About me</h1>
+            <h1 className="animate__animated animate__fadeIn animate__slower">
+                About me
+            </h1>
             <div className="grid md:grid-cols-2 md:gap-14 gap-3 md:items-center">
                 <img src={myImage} alt="My photo" className="w-100 my-3" />
                 <div>
