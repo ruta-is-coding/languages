@@ -1,4 +1,4 @@
-import { Head, router, usePage } from "@inertiajs/react";
+import { Head, router, usePage, Link } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import TextInput from "@/Components/TextInput";
 import Errors from "@/Components/Error";
@@ -17,14 +17,23 @@ const Registration = ({ meetup, csrf_token }) => {
             {/* Error messages */}
             <Errors errors={errors} />
             {/* Registration form */}
+            <Link
+                href={`/meetups/${meetup.id}`}
+                className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-400 hover:bg-rose-500 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+            >
+                Back
+            </Link>
             <div className="flex flex-col items-center py-10">
                 <form
                     onSubmit={handleSubmit}
                     encType="multipart/form-data"
                     className="roseForm"
                 >
-                    <h2 className="text-center lg:text-5xl md:text-4xl mt-14 mb-20 leading-loose">
-                        Register to:
+                    <h2
+                        className="text-center lg:text-5xl md:text-4xl mt-5 mb-14"
+                        style={{ lineHeight: "3.5rem" }}
+                    >
+                        <span className="subheader">A reminder for</span>
                         <br />
                         {meetup.name}
                     </h2>

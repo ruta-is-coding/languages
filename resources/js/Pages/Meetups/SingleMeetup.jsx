@@ -11,7 +11,7 @@ const SingleMeetup = ({ meetup, username, email }) => {
             >
                 Back
             </Link>
-            <h1 className="mt-16 mb-10 md:mb-16">{meetup.name}</h1>
+            <h1 className="my-10 md:mb-16">{meetup.name}</h1>
             <div className="grid md:grid-cols-5 md:gap-14 gap-3">
                 <div className="col-span-3">
                     <img
@@ -20,12 +20,12 @@ const SingleMeetup = ({ meetup, username, email }) => {
                         className="w-100 mb-5"
                     />
                     <div className="flex justify-end items-center gap-3">
-                        <p>Want to participate?</p>
+                        <p>Want to receive a reminder?</p>
                         <Link
                             href={`/meetups/${meetup.id}/register`}
                             className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-2 md:px-5 px-3 rounded-lg transition ease-in-out duration-150"
                         >
-                            Join
+                            Yes
                         </Link>
                     </div>
                 </div>

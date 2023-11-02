@@ -34,6 +34,8 @@ const Pagination = ({
         }
     }, [currentPage]);
 
+    console.log(disablePrevious, disableNext);
+
     return (
         <nav className="mt-10 pagination">
             <div className="flex justify-center -space-x-px h-10 text-base">
@@ -56,6 +58,11 @@ const Pagination = ({
                         }`}
                         onClick={() => {
                             setCurrentPage(page);
+                            if (page !== 1) {
+                                setDisablePrevious(false);
+                            } else {
+                                setDisableNext(false);
+                            }
                         }}
                     >
                         {page}

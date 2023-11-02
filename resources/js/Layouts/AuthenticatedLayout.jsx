@@ -3,6 +3,7 @@ import { Link } from "@inertiajs/react";
 import Dropdown from "@/Components/Dropdown";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import Logo from "@/Components/Logo";
+import Footer from "@/Components/Footer/Footer";
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -10,8 +11,8 @@ export default function Authenticated({ user, header, children }) {
 
     return (
         <>
-            <header className="shadow-lg md:py-8 py-5 md:px-0 px-1 w-full">
-                <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7">
+            <header className="md:px-0 px-1 w-full bg-rose-100">
+                <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7 mx-auto md:py-10 py-7">
                     <div className="flex md:items-center md:flex-row md:gap-0 flex-col gap-3 items-start">
                         <Logo />
                         <Link
@@ -30,7 +31,7 @@ export default function Authenticated({ user, header, children }) {
                                     <span className="inline-flex rounded-md">
                                         <button
                                             type="button"
-                                            className="inline-flex items-center px-3 py-2 border border-transparent text-rose-500 lg:text-xl text-base font-normal leading-4 rounded-md bg-white focus:outline-none transition ease-in-out duration-150"
+                                            className="inline-flex items-center px-3 py-2 border border-transparent text-rose-500 lg:text-xl text-base font-normal leading-4 rounded-md bg-rose-100 focus:outline-none transition ease-in-out duration-150"
                                         >
                                             {user.name}
 
@@ -51,6 +52,9 @@ export default function Authenticated({ user, header, children }) {
                                 </Dropdown.Trigger>
 
                                 <Dropdown.Content>
+                                    <Dropdown.Link href="/dashboard">
+                                        Dashboard
+                                    </Dropdown.Link>
                                     <Dropdown.Link href="/my-meetups">
                                         My meetups
                                     </Dropdown.Link>
@@ -150,8 +154,8 @@ export default function Authenticated({ user, header, children }) {
                     </div>
                 </header>
             )}
-
-            <main>{children}</main>
+            <main className="bg-rose-50">{children}</main>
+            <Footer />
         </>
     );
 }

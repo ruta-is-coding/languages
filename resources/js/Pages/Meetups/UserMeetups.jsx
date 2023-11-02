@@ -33,6 +33,15 @@ const UserMeetups = ({ auth, user_meetups }) => {
                 <Container>
                     {showMessage && <Success flash={flash} />}
                     <h1>My meetups</h1>
+                    <div className="flex justify-center items-center gap-3 my-10">
+                        <p>Create another meetup</p>
+                        <Link
+                            href={route("meetup.new")}
+                            className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
+                        >
+                            Create
+                        </Link>
+                    </div>
                     <UserMeetupList meetups={currentCards} />
                     {meetups.length !== 0 ? (
                         <Pagination
@@ -43,18 +52,9 @@ const UserMeetups = ({ auth, user_meetups }) => {
                         />
                     ) : (
                         <h3 className="my-10">
-                            No meetups for this criteria (so far) &#128532;
+                            You don't have any meetups (so far) &#128532;
                         </h3>
                     )}
-                    <div className="flex justify-end items-center gap-3 mt-14">
-                        <p>Create another meetup</p>
-                        <Link
-                            href={route("meetup.new")}
-                            className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-3 md:px-5 px-4 rounded-lg transition ease-in-out duration-150"
-                        >
-                            Create
-                        </Link>
-                    </div>
                 </Container>
             </section>
         </AuthenticatedLayout>

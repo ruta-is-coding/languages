@@ -9,7 +9,7 @@ export default function Dashboard({ auth }) {
             <section>
                 <Container>
                     <h1>Welcome on board!</h1>
-                    <div className="flex justify-end items-center gap-3 pt-5">
+                    <div className="flex justify-center items-center gap-3">
                         <p>
                             Create your own meetup{" "}
                             <span className="font-bold">here:</span>

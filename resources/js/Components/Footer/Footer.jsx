@@ -7,9 +7,25 @@ const Footer = () => {
         <footer>
             <Container>
                 <div className="grid grid-cols-3 md:gap-x-0 gap-x-7">
+                    <h4 className="col-span-1 mb-3">Our social media:</h4>
                     <div></div>
                     <div></div>
-                    <h4 className="col-span-1">Our social media:</h4>
+                    <nav className="col-span-1">
+                        <ul>
+                            <li>
+                                <Link href="#">Instagram</Link>
+                            </li>
+                            <li>
+                                <Link href="#">Twitter</Link>
+                            </li>
+                            <li>
+                                <Link href="#">Youtube</Link>
+                            </li>
+                            <li>
+                                <Link href="#">LinkedIn</Link>
+                            </li>
+                        </ul>
+                    </nav>
                     <nav className="col-span-1">
                         <ul>
                             <li>
@@ -36,22 +52,6 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link href="#">Terms and conditions</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav className="col-span-1">
-                        <ul>
-                            <li>
-                                <Link href="#">Instagram</Link>
-                            </li>
-                            <li>
-                                <Link href="#">Twitter</Link>
-                            </li>
-                            <li>
-                                <Link href="#">Youtube</Link>
-                            </li>
-                            <li>
-                                <Link href="#">LinkedIn</Link>
                             </li>
                         </ul>
                     </nav>
