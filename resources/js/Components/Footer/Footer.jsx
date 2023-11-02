@@ -6,7 +6,10 @@ const Footer = () => {
     return (
         <footer>
             <Container>
-                <div className="grid grid-cols-3 gap-x-7">
+                <div className="grid grid-cols-3 md:gap-x-0 gap-x-7">
+                    <div></div>
+                    <div></div>
+                    <h4 className="col-span-1">Our social media:</h4>
                     <nav className="col-span-1">
                         <ul>
                             <li>
@@ -37,7 +40,6 @@ const Footer = () => {
                         </ul>
                     </nav>
                     <nav className="col-span-1">
-                        <h4>Our social media:</h4>
                         <ul>
                             <li>
                                 <Link href="#">Instagram</Link>

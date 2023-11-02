@@ -2,7 +2,7 @@ const TextArea = ({ name }) => {
     return (
         <div className="mb-5">
             <label
-                className="block text-gray-700 text-sm font-bold mb-3"
+                className="block text-gray-700 text-base font-bold mb-3"
                 htmlFor="description"
             >
                 Description

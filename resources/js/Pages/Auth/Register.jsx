@@ -30,9 +30,13 @@ export default function Register() {
         <GuestLayout>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className="roseForm">
                 <div>
-                    <InputLabel htmlFor="name" value="Username" />
+                    <InputLabel
+                        htmlFor="name"
+                        value="Username"
+                        className="block text-gray-700 text-base font-bold mb-3"
+                    />
 
                     <TextInput
                         id="name"
@@ -48,7 +52,11 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="email" value="Email" />
+                    <InputLabel
+                        htmlFor="email"
+                        value="Email"
+                        className="block text-gray-700 text-base font-bold mb-3"
+                    />
 
                     <TextInput
                         id="email"
@@ -64,7 +72,11 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel
+                        htmlFor="password"
+                        value="Password"
+                        className="block text-gray-700 text-base font-bold mb-3"
+                    />
 
                     <TextInput
                         id="password"
@@ -83,6 +95,7 @@ export default function Register() {
                     <InputLabel
                         htmlFor="password_confirmation"
                         value="Confirm Password"
+                        className="block text-gray-700 text-base font-bold mb-3"
                     />
 
                     <TextInput
@@ -106,7 +119,7 @@ export default function Register() {
                 <div className="flex items-center justify-end mt-4">
                     <Link
                         href={route("login")}
-                        className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="underline text-base text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Already registered?
                     </Link>

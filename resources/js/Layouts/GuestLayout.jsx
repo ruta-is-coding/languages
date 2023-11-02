@@ -6,7 +6,7 @@ export default function Guest({ children }) {
     return (
         <>
             <Header />
-            <main>
+            <main className="bg-rose-50">
                 <Container>{children}</Container>
             </main>
             <Footer />

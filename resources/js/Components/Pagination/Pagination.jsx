@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Pagination.css";
 import Previous from "@/Icons/Previous";
 import Next from "@/Icons/Next";
 

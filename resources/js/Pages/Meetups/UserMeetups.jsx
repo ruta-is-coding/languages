@@ -4,7 +4,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 import UserMeetupList from "@/Components/UserMeetupList";
 import Success from "@/Components/Success";
-import Pagination from "@/Components/Pagination";
+import Pagination from "@/Components/Pagination/Pagination";
 
 const UserMeetups = ({ auth, user_meetups }) => {
     const { flash } = usePage().props;

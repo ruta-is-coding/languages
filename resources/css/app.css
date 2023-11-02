@@ -52,18 +52,8 @@ main .container {
     @apply grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-7 gap-x-4 gap-y-10 justify-items-center;
 }
 .card {
-    @apply col-span-1 w-full flex flex-col gap-2 items-center relative rounded-lg p-4;
-    border: 1px solid #e5e7eb;
+    @apply col-span-1 w-full flex flex-col gap-2 items-center relative rounded-lg p-4 border border-gray-300 hover:scale-105 transition-all bg-white;
 }
-.paginationBtn {
-    @apply flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:text-gray-700;
-}
-.previousBtn {
-    @apply flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:text-gray-700 rounded-l-lg;
-}
-.nextBtn {
-    @apply flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:text-gray-700 rounded-r-lg;
-}
-.pagination button.active {
-    @apply text-rose-700 hover:font-semibold;
+.roseForm {
+    @apply bg-rose-50 rounded-lg px-10 py-14 mb-4 w-full max-w-md;
 }

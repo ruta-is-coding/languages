@@ -20,11 +20,11 @@ const Header = ({ auth }) => {
     };
 
     return (
-        <header className="border-b-2 md:py-8 py-5 md:px-0 px-1 w-full">
-            <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7 mx-auto">
+        <header className="md:px-0 px-1 w-full bg-rose-100">
+            <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7 mx-auto md:py-10 py-7">
                 <div className="flex md:items-center md:flex-row md:gap-0 flex-col gap-3 items-start">
                     <Logo />
-                    <h2 className="md:text-center text-left">
+                    <h2 className="md:text-center text-left text-rose-500">
                         Language meetups
                     </h2>
                 </div>

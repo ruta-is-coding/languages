@@ -3,7 +3,7 @@ const DatePicker = () => {
         <div className="mb-5">
             <label
                 htmlFor="date"
-                className="block text-gray-700 text-sm font-bold mb-3"
+                className="block text-gray-700 text-base font-bold mb-3"
             >
                 Pick a date
             </label>

@@ -1,11 +1,11 @@
-import { Head, Link, usePage } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import CountryFilter from "@/Components/CountryFilter";
 import LanguageFilter from "@/Components/LanguageFilter";
 import MeetupList from "@/Components/MeetupList";
 import Success from "@/Components/Success";
-import Pagination from "@/Components/Pagination";
+import Pagination from "@/Components/Pagination/Pagination";
 
 const Meetups = ({ meetupsList, countries, languages }) => {
     const { flash } = usePage().props;

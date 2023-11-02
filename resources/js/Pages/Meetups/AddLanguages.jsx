@@ -36,7 +36,7 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
                         <form
                             onSubmit={handleSubmit}
                             encType="multipart/form-data"
-                            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
+                            className="roseForm"
                         >
                             {languages.map((language) => (
                                 <div
@@ -52,7 +52,7 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
                                     />
                                     <label
                                         htmlFor="default-checkbox"
-                                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                        className="ml-2 text-base font-medium text-gray-900 dark:text-gray-300"
                                     >
                                         {language.language_name}
                                     </label>

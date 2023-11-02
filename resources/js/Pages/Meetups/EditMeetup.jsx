@@ -47,18 +47,18 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                         <form
                             onSubmit={handleSubmit}
                             encType="multipart/form-data"
-                            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md"
+                            className="roseForm"
                         >
                             {/* Meetup title */}
                             <div className="mb-5">
                                 <label
-                                    className="block text-gray-700 text-sm font-bold mb-3"
+                                    className="block text-gray-700 text-base font-bold mb-3"
                                     htmlFor="name"
                                 >
                                     Meetup name
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-rose-500 focus:border-rose-500"
+                                    className="appearance-none border border-rose-200 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:ring-rose-500 focus:border-rose-500"
                                     id="name"
                                     name="name"
                                     type="text"
@@ -70,13 +70,13 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                             {/* City */}
                             <div className="mb-5">
                                 <label
-                                    className="block text-gray-700 text-sm font-bold mb-3"
+                                    className="block text-gray-700 text-base font-bold mb-3"
                                     htmlFor="city"
                                 >
                                     City
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-rose-500 focus:border-rose-500"
+                                    className="appearance-none border border-rose-200 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:ring-rose-500 focus:border-rose-500"
                                     id="city"
                                     name="city"
                                     type="text"
@@ -88,13 +88,13 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                             {/* Meetup place */}
                             <div className="mb-5">
                                 <label
-                                    className="block text-gray-700 text-sm font-bold mb-3"
+                                    className="block text-gray-700 text-base font-bold mb-3"
                                     htmlFor="place"
                                 >
                                     Meetup place
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-rose-500 focus:border-rose-500"
+                                    className="appearance-none border border-rose-200 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:ring-rose-500 focus:border-rose-500"
                                     id="place"
                                     name="place"
                                     type="text"
@@ -106,13 +106,13 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                             {/* Meetup description */}
                             <div className="mb-5">
                                 <label
-                                    className="block text-gray-700 text-sm font-bold mb-3"
+                                    className="block text-gray-700 text-base font-bold mb-3"
                                     htmlFor="description"
                                 >
                                     Description
                                 </label>
                                 <textarea
-                                    className="block p-2.5 w-full text-gray-700 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500"
+                                    className="block appearance-none border border-rose-200 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:ring-rose-500 focus:border-rose-500"
                                     rows="4"
                                     placeholder="Describe your meetup here..."
                                     id="description"
@@ -124,13 +124,13 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                             {/* Photo */}
                             <div className="mb-5">
                                 <label
-                                    className="block text-gray-700 text-sm font-bold mb-3"
+                                    className="block text-gray-700 text-base font-bold mb-3"
                                     htmlFor="photo"
                                 >
                                     Change the photo
                                 </label>
                                 <input
-                                    className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                    className="block w-full text-base text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
                                     type="file"
                                     id="photo"
                                     name="photo"
@@ -141,7 +141,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                             {/* Country */}
                             <div className="mb-5">
                                 <label
-                                    className="block text-gray-700 text-sm font-bold mb-3"
+                                    className="block text-gray-700 text-base font-bold mb-3"
                                     htmlFor="country_id"
                                 >
                                     Select a country
@@ -149,7 +149,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                                 <select
                                     id="country_id"
                                     name="country_id"
-                                    className="block py-2.5 px-3 w-50 text-sm text-gray-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                                    className="block py-2.5 px-3 w-50 text-base text-gray-700 bg-transparent border-0 border-b-2 border-rose-200 appearance-none focus:outline-none focus:ring-0 focus:border-rose-200 peer"
                                     value={values.country_id}
                                     onChange={handleChange}
                                 >
@@ -174,7 +174,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                             <div className="mb-5">
                                 <label
                                     htmlFor="date"
-                                    className="block text-gray-700 text-sm font-bold mb-3"
+                                    className="block text-gray-700 text-base font-bold mb-3"
                                 >
                                     Pick a date
                                 </label>
@@ -191,7 +191,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                             <div className="mb-5">
                                 <label
                                     htmlFor="time"
-                                    className="block text-gray-700 text-sm font-bold mb-3"
+                                    className="block text-gray-700 text-base font-bold mb-3"
                                 >
                                     Pick a time
                                 </label>

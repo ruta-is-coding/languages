@@ -1,0 +1,12 @@
+.paginationBtn {
+    @apply flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:text-gray-700;
+}
+.previousBtn {
+    @apply flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:text-gray-700 rounded-l-lg;
+}
+.nextBtn {
+    @apply flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:text-gray-700 rounded-r-lg;
+}
+.pagination button.active {
+    @apply text-rose-700 hover:font-semibold;
+}

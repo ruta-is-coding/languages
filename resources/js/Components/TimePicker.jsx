@@ -3,7 +3,7 @@ const TimePicker = () => {
         <div className="mb-5">
             <label
                 htmlFor="time"
-                className="block text-gray-700 text-sm font-bold mb-3"
+                className="block text-gray-700 text-base font-bold mb-3"
             >
                 Pick a time
             </label>

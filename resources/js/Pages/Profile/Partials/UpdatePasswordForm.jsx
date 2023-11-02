@@ -51,7 +51,7 @@ export default function UpdatePasswordForm({ className = "" }) {
                     Update Password
                 </h2>
 
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-base text-gray-600">
                     Ensure your account is using a long, random password to stay
                     secure.
                 </p>
@@ -131,7 +131,7 @@ export default function UpdatePasswordForm({ className = "" }) {
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-gray-600">Saved.</p>
+                        <p className="text-base text-gray-600">Saved.</p>
                     </Transition>
                 </div>
             </form>

@@ -5,10 +5,10 @@ footer .container {
     @apply mx-auto lg:max-w-3xl lg:px-0 md:px-4 px-7;
 }
 footer li {
-    @apply text-left md:mb-3 mb-0;
+    @apply text-left md:mb-2 mb-0;
 }
 footer a {
-    @apply md:text-lg text-sm transition-all ease-in;
+    @apply md:text-lg text-base text-gray-500 transition-all ease-in;
 }
 footer a:hover {
     @apply font-semibold md:text-xl;
