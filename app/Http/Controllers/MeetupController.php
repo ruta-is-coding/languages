@@ -10,6 +10,7 @@ use App\Models\Country;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
+use App\Rules\NotInPast;
 
 class MeetupController extends Controller
 {
@@ -42,7 +43,7 @@ class MeetupController extends Controller
             'description' => 'required',
             'photo' => 'required|mimes:jpeg,png,gif,bmp,tiff,svg',
             'country_id' => 'required',
-            'date' => 'required',
+            'date' => ['required', new NotInPast],
             'time' => 'required',
         ]);
         $validated['photo'] = $request->file('photo')->store('meetupPhotos', 'public');
@@ -63,8 +64,14 @@ class MeetupController extends Controller
     //Add meetup languages
     public function addLanguages(Request $request)
     {
-        $selectedLanguages = $request->input('language_id', []);
+        // Validation that at least one language is selected
+        $validated = $request->validate([
+            'language_id' => 'required|array|min:1',
+        ]);
+        $selectedLanguages = $validated['language_id'];
+        // Last created meetup
         $lastMeetupId = Meetup::latest('id')->first()->id;
+        // Loop through selected languages
         foreach ($selectedLanguages as $languageId) {
             MeetupLanguage::create([
                 'meetup_id' => $lastMeetupId,
@@ -116,7 +123,7 @@ class MeetupController extends Controller
             'description' => 'required',
             'photo' => 'required|mimes:jpeg,png,gif,bmp,tiff,svg',
             'country_id' => 'required',
-            'date' => 'required',
+            'date' => ['required', new NotInPast],
             'time' => 'required',
         ]);
         $validated['user_id'] = auth()->user()->id;
@@ -155,7 +162,7 @@ class MeetupController extends Controller
     {
         $validated = $request->validate([
             'full_name' => 'required|min:5|max:200',
-            'email' => 'required|min:3|max:200',
+            'email' => 'required|email|min:3|max:200',
         ]);
         $validated['meetup_id'] = $id;
         MeetupParticipant::create($validated);

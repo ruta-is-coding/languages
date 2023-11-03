@@ -13,7 +13,6 @@ const Registration = ({ meetup, csrf_token }) => {
     return (
         <GuestLayout>
             <Head title="Register to a meetup" />
-
             {/* Error messages */}
             <Errors errors={errors} />
             {/* Registration form */}
@@ -29,10 +28,7 @@ const Registration = ({ meetup, csrf_token }) => {
                     encType="multipart/form-data"
                     className="roseForm"
                 >
-                    <h2
-                        className="text-center lg:text-5xl md:text-4xl mt-5 mb-14"
-                        style={{ lineHeight: "3.5rem" }}
-                    >
+                    <h2 style={{ lineHeight: "3.5rem" }}>
                         <span className="subheader">A reminder for</span>
                         <br />
                         {meetup.name}

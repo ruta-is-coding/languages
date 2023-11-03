@@ -1,6 +1,7 @@
 import "./Footer.css";
 import { Link } from "@inertiajs/react";
 import Container from "../Container";
+import ArrowUp from "@/Icons/ArrowUp";
 
 const Footer = () => {
     return (
@@ -56,6 +57,7 @@ const Footer = () => {
                         </ul>
                     </nav>
                 </div>
+                <ArrowUp />
             </Container>
         </footer>
     );

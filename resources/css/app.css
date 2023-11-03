@@ -13,7 +13,7 @@ main .container {
     @apply mx-auto lg:max-w-3xl px-7;
 }
 h1 {
-    @apply my-8 text-rose-700 text-center md:text-6xl sm:text-5xl text-3xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
+    @apply my-8 text-rose-700 text-center md:text-6xl sm:text-5xl text-3xl font-light lg:w-8/12 w-10/12 mx-auto md:leading-tight;
 }
 .subheader {
     @apply md:my-20 mt-10 mb-16 text-rose-600 text-center md:text-3xl text-2xl font-light lg:w-8/12 w-8/12 mx-auto md:leading-tight;
@@ -30,7 +30,7 @@ p {
 }
 header a {
     text-decoration: none;
-    @apply text-rose-500 lg:text-xl text-base font-normal hover:text-rose-700 hover:scale-110;
+    @apply text-rose-500 lg:text-xl text-base font-normal transition-all ease-in hover:text-rose-700 hover:scale-110;
 }
 img {
     @apply rounded-lg;
@@ -52,11 +52,22 @@ main .container {
     @apply grid lg:grid-cols-3 md:grid-cols-2 lg:gap-x-7 gap-x-4 gap-y-10 justify-items-center;
 }
 .card {
-    @apply col-span-1 w-full flex flex-col gap-2 items-center relative rounded-lg p-4 border border-gray-300 hover:scale-105 transition-all bg-white;
+    @apply col-span-1 w-full flex flex-col gap-2 items-center relative rounded-lg p-4 border border-gray-300 hover:scale-105 transition-all ease-in bg-white;
 }
 .roseForm {
-    @apply bg-white border-2 border-rose-100 rounded-lg px-10 py-14 mb-4 w-full max-w-md;
+    @apply bg-white border-2 border-rose-100 rounded-lg px-10 md:py-14 py-7 mb-4 w-full max-w-md;
+}
+.roseForm h2 {
+    @apply text-center lg:text-4xl md:text-4xl mb-10 text-rose-600;
+    line-height: 3.5rem;
 }
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+.arrowUp {
+    @apply w-12 h-12 fixed md:right-5 md:bottom-5 md:block hidden hover:cursor-pointer hover:animate-pulse;
+}
+.arrowUp path {
+    stroke: rgb(153, 153, 153);
 }

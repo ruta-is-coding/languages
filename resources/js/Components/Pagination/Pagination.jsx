@@ -11,6 +11,7 @@ const Pagination = ({
 }) => {
     const [disablePrevious, setDisablePrevious] = useState(true);
     const [disableNext, setDisableNext] = useState(false);
+
     let pagesArray = [];
     let calculatedPages = Math.ceil(totalCards / cardsPerPage);
     for (let i = 1; i <= calculatedPages; i++) {
@@ -34,11 +35,10 @@ const Pagination = ({
         }
     }, [currentPage]);
 
-    console.log(disablePrevious, disableNext);
-
     return (
         <nav className="mt-10 pagination">
             <div className="flex justify-center -space-x-px h-10 text-base">
+                {/* Previous button */}
                 <button
                     className="previousBtn"
                     disabled={disablePrevious ? true : false}
@@ -48,8 +48,10 @@ const Pagination = ({
                     }}
                 >
                     <span className="sr-only">Previous</span>
+                    {/* Arrow icon */}
                     <Previous />
                 </button>
+                {/* Pages */}
                 {pagesArray.map((page, index) => (
                     <button
                         key={index}
@@ -68,6 +70,7 @@ const Pagination = ({
                         {page}
                     </button>
                 ))}
+                {/* Next button */}
                 <button
                     className="nextBtn"
                     onClick={() => {
@@ -77,6 +80,7 @@ const Pagination = ({
                     disabled={disableNext ? true : false}
                 >
                     <span className="sr-only">Next</span>
+                    {/* Arrow icon */}
                     <Next />
                 </button>
             </div>

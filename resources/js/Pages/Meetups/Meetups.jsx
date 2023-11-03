@@ -39,12 +39,14 @@ const Meetups = ({ meetupsList, countries, languages }) => {
                     )
             );
             setMeetups(filteredMeetups);
+
             // Filter by country
         } else if (selectedCountryId) {
             const filteredMeetups = originalMeetups.filter(
                 (meetup) => meetup.country_id === +selectedCountryId
             );
             setMeetups(filteredMeetups);
+
             // Filter by language
         } else if (selectedLanguageId) {
             const filteredMeetups = originalMeetups.filter((meetup) =>
@@ -53,6 +55,7 @@ const Meetups = ({ meetupsList, countries, languages }) => {
                 )
             );
             setMeetups(filteredMeetups);
+
             // No filter
         } else {
             setMeetups(originalMeetups);
@@ -64,7 +67,7 @@ const Meetups = ({ meetupsList, countries, languages }) => {
             setShowMessage(true);
             setTimeout(() => {
                 setShowMessage(false);
-            }, 1500);
+            }, 2500);
         }
     };
 
@@ -75,7 +78,7 @@ const Meetups = ({ meetupsList, countries, languages }) => {
             <h1 className="animate__animated animate__fadeIn animate__slower">
                 Meet new people from all over the world
             </h1>
-            {/* Filter */}
+            {/* Filters */}
             <div className="md:flex gap-5 mt-20 mb-7">
                 <CountryFilter
                     countries={countries}
@@ -86,7 +89,9 @@ const Meetups = ({ meetupsList, countries, languages }) => {
                     setSelectedLanguageId={setSelectedLanguageId}
                 />
             </div>
+            {/* Meetups */}
             <MeetupList meetups={currentCards} />
+            {/* Pagination is visible if there are any cards */}
             {meetups.length !== 0 ? (
                 <Pagination
                     totalCards={meetups.length}

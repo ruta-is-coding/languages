@@ -39,9 +39,9 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
             <Head title="Edit a meetup" />
             <section>
                 <Container>
-                    <h1>Edit your meetup: {meetup.name}</h1>
                     {/* Error messages */}
                     <Errors errors={errors} />
+
                     {/* Editing form */}
                     <div className="flex justify-center">
                         <form
@@ -49,6 +49,7 @@ const EditMeetup = ({ auth, countries, meetup, csrf_token, id }) => {
                             encType="multipart/form-data"
                             className="roseForm"
                         >
+                            <h2>Edit your meetup: {meetup.name}</h2>
                             {/* Meetup title */}
                             <div className="mb-5">
                                 <label

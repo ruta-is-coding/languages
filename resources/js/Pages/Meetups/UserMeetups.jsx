@@ -21,7 +21,7 @@ const UserMeetups = ({ auth, user_meetups }) => {
             setShowMessage(true);
             setTimeout(() => {
                 setShowMessage(false);
-            }, "1500");
+            }, "2500");
         }
     }, []);
 

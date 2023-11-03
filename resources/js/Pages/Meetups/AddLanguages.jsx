@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Container from "@/Components/Container";
 import Success from "@/Components/Success";
+import Errors from "@/Components/Error";
 
 const AddLanguages = ({ auth, languages, csrf_token }) => {
-    const { flash } = usePage().props;
+    const { flash, errors } = usePage().props;
     const [showMessage, setShowMessage] = useState(false);
 
     // Display success message
@@ -14,7 +15,7 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
             setShowMessage(true);
             setTimeout(() => {
                 setShowMessage(false);
-            }, "1500");
+            }, "2500");
         }
     }, []);
 
@@ -31,13 +32,17 @@ const AddLanguages = ({ auth, languages, csrf_token }) => {
             <section>
                 <Container>
                     {showMessage && <Success flash={flash} />}
-                    <h1>Choose your meetup languages</h1>
+                    <Errors
+                        errors={errors}
+                        className="animate__animated animate__fadeIn animate__slower"
+                    />
                     <div className="flex justify-center">
                         <form
                             onSubmit={handleSubmit}
                             encType="multipart/form-data"
                             className="roseForm"
                         >
+                            <h2>Choose your meetup languages</h2>
                             {languages.map((language) => (
                                 <div
                                     className="flex items-center mb-4"

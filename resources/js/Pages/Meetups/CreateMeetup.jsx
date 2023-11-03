@@ -21,7 +21,6 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
             <Head title="Create a meetup" />
             <section>
                 <Container>
-                    <h1>Create a meetup</h1>
                     {/* Error messages */}
                     <Errors errors={errors} />
                     {/* Create form */}
@@ -31,6 +30,7 @@ const CreateMeetup = ({ auth, countries, csrf_token }) => {
                             encType="multipart/form-data"
                             className="roseForm"
                         >
+                            <h2>Create a meetup</h2>
                             <TextInput
                                 label="Meetup name"
                                 id="name"
