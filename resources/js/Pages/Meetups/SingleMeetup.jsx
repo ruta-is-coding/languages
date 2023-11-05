@@ -12,7 +12,7 @@ const SingleMeetup = ({ meetup, username, email }) => {
                 Back
             </Link>
             <h1 className="my-10 md:mb-16">{meetup.name}</h1>
-            <div className="grid md:grid-cols-5 md:gap-14 gap-3">
+            <div className="grid md:grid-cols-6 md:gap-14 gap-3">
                 <div className="col-span-3">
                     <img
                         src={`/storage/${meetup.photo}`}
@@ -20,7 +20,9 @@ const SingleMeetup = ({ meetup, username, email }) => {
                         className="w-100 mb-5"
                     />
                     <div className="flex justify-end items-center gap-3">
-                        <p>Want to receive a reminder?</p>
+                        <p className="text-right">
+                            Want to receive a reminder?
+                        </p>
                         <Link
                             href={`/meetups/${meetup.id}/register`}
                             className="btn text-white font-bold hover:text-white text-base md:text-lg bg-rose-700 hover:bg-rose-600 py-2 md:px-5 px-3 rounded-lg transition ease-in-out duration-150"
@@ -30,7 +32,7 @@ const SingleMeetup = ({ meetup, username, email }) => {
                     </div>
                 </div>
 
-                <div className="md:pl-0 meetup-info col-span-2">
+                <div className="md:pl-0 meetup-info col-span-3">
                     <p>
                         <span>Description:</span> {meetup.description}
                     </p>

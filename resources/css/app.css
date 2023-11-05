@@ -70,4 +70,5 @@ input:-webkit-autofill {
 }
 .arrowUp path {
     stroke: rgb(153, 153, 153);
+    fill: #fff7f7;
 }

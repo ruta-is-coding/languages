@@ -10,7 +10,7 @@ const CountryFilter = ({ countries, setSelectedCountryId }) => {
             <select
                 name="country_id"
                 id="countries"
-                className="block py-2.5 px-3 w-full text-base text-gray-700 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                className="block py-2.5 px-3 w-full text-base text-gray-700 bg-white rounded-lg border border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
                 onChange={(e) => {
                     setSelectedCountryId(e.target.value);
                 }}

@@ -20,7 +20,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <br />
                             <span className="subheader">find new friends</span>
                         </h1>
-                        <div className="flex md:flex-row flex-col justify-center items-center gap-3 my-10">
+                        <div className="flex md:flex-row flex-col justify-center items-center gap-3 my-10 md:pl-10">
                             <p>Want to organize meetups?</p>
                             <Link
                                 href={route("register")}

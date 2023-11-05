@@ -2,7 +2,10 @@ footer {
     @apply bg-rose-100;
 }
 footer .container {
-    @apply mx-auto lg:max-w-3xl lg:px-0 md:px-4 px-7;
+    @apply py-8 mx-auto lg:max-w-3xl lg:px-0 md:px-4 px-7;
+}
+footer nav {
+    @apply flex flex-col items-center;
 }
 footer li {
     @apply text-left md:mb-2 mb-0;

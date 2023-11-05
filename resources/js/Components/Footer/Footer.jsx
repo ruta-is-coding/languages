@@ -1,16 +1,12 @@
 import "./Footer.css";
 import { Link } from "@inertiajs/react";
-import Container from "../Container";
 import ArrowUp from "@/Icons/ArrowUp";
 
 const Footer = () => {
     return (
         <footer>
-            <Container>
-                <div className="grid grid-cols-3 md:gap-x-0 gap-x-7">
-                    <h4 className="col-span-1 mb-3">Our social media:</h4>
-                    <div></div>
-                    <div></div>
+            <div className="container">
+                <div className="grid grid-cols-3 md:gap-x-3 gap-x-7">
                     <nav className="col-span-1">
                         <ul>
                             <li>
@@ -58,7 +54,7 @@ const Footer = () => {
                     </nav>
                 </div>
                 <ArrowUp />
-            </Container>
+            </div>
         </footer>
     );
 };
