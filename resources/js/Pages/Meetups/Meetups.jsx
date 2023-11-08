@@ -7,7 +7,7 @@ import MeetupList from "@/Components/MeetupList";
 import Success from "@/Components/Success";
 import Pagination from "@/Components/Pagination/Pagination";
 
-const Meetups = ({ meetupsList, countries, languages }) => {
+const Meetups = ({ auth, meetupsList, countries, languages }) => {
     const { flash } = usePage().props;
     const [showMessage, setShowMessage] = useState(false);
     const [selectedCountryId, setSelectedCountryId] = useState(null);
@@ -72,7 +72,7 @@ const Meetups = ({ meetupsList, countries, languages }) => {
     };
 
     return (
-        <GuestLayout>
+        <GuestLayout user={auth.user}>
             <Head title="Meetup list" />
             {showMessage && <Success flash={flash} />}
             <h1 className="animate__animated animate__fadeIn animate__slower">

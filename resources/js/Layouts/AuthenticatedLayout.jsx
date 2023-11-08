@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Link } from "@inertiajs/react";
-import Dropdown from "@/Components/Dropdown";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import Logo from "@/Components/Logo";
 import Footer from "@/Components/Footer/Footer";
+import Header from "@/Components/Header";
 
-export default function Authenticated({ user, header, children }) {
+export default function Authenticated({ user, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
     return (
         <>
-            <header className="md:px-0 px-1 w-full bg-rose-100">
+            {/* <header className="md:px-0 px-1 w-full bg-rose-100">
                 <div className="container flex justify-between lg:gap-10 md:gap-7 md:px-1 px-7 mx-auto md:py-10 py-7">
                     <div className="flex md:items-center md:flex-row md:gap-0 flex-col gap-3 items-start">
                         <Logo />
@@ -23,55 +23,7 @@ export default function Authenticated({ user, header, children }) {
                         </Link>
                     </div>
 
-                    {/* Dropdown */}
-                    <div className="hidden sm:flex sm:items-center sm:ml-6">
-                        <div className="ml-3 relative">
-                            <Dropdown>
-                                <Dropdown.Trigger>
-                                    <span className="inline-flex rounded-md">
-                                        <button
-                                            type="button"
-                                            className="inline-flex items-center px-3 py-2 border border-transparent text-rose-500 lg:text-xl text-base font-normal leading-4 rounded-md bg-rose-100 focus:outline-none transition ease-in-out duration-150"
-                                        >
-                                            {user.name}
 
-                                            <svg
-                                                className="ml-2 -mr-0.5 h-4 w-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                                fill="rgb(244 63 94)"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </button>
-                                    </span>
-                                </Dropdown.Trigger>
-
-                                <Dropdown.Content>
-                                    <Dropdown.Link href="/dashboard">
-                                        Dashboard
-                                    </Dropdown.Link>
-                                    <Dropdown.Link href="/my-meetups">
-                                        My meetups
-                                    </Dropdown.Link>
-                                    <Dropdown.Link href={route("profile.edit")}>
-                                        Profile
-                                    </Dropdown.Link>
-                                    <Dropdown.Link
-                                        href={route("logout")}
-                                        method="post"
-                                        as="button"
-                                    >
-                                        Log Out
-                                    </Dropdown.Link>
-                                </Dropdown.Content>
-                            </Dropdown>
-                        </div>
-                    </div>
 
                     <div className="-mr-2 flex items-center sm:hidden">
                         <button
@@ -145,15 +97,16 @@ export default function Authenticated({ user, header, children }) {
                         </div>
                     </div>
                 </div>
-            </header>
+            </header> */}
 
-            {header && (
+            {/* {header && (
                 <header className="bg-white shadow">
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {header}
                     </div>
                 </header>
-            )}
+            )} */}
+            <Header user={user} />
             <main className="bg-rose-50">{children}</main>
             <Footer />
         </>
