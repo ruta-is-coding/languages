@@ -2,9 +2,9 @@ import myImage from "@/Images/me.jpg";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Link, Head } from "@inertiajs/react";
 
-const About = () => {
+const About = ({ auth }) => {
     return (
-        <GuestLayout>
+        <GuestLayout user={auth.user}>
             <Head title="About me" />
             <h1 className="animate__animated animate__fadeIn animate__slower">
                 About me

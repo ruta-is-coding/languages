@@ -36,7 +36,7 @@ const Header = ({ user }) => {
                         menuVisibility={menuVisibility}
                     />
                     <div
-                        className={`md:flex md:flex-row items-center flex-col lg:gap-5 md:gap-3 ${menuVisibility}`}
+                        className={`md:flex md:flex-row items-end md:items-center flex-col lg:gap-5 md:gap-3 ${menuVisibility}`}
                     >
                         <Link href={route("home")}>Home</Link>
                         <Link href={route("meetups")}>Meetups</Link>
@@ -50,56 +50,47 @@ const Header = ({ user }) => {
                         )}
                         {/* DropDown */}
                         {user && (
-                            <div className="hidden sm:flex sm:items-center">
-                                <div className="ml-3 relative">
-                                    <Dropdown>
-                                        <Dropdown.Trigger>
-                                            <span className="inline-flex rounded-md">
-                                                <button
-                                                    type="button"
-                                                    className="inline-flex items-center px-3 py-2 border border-transparent text-rose-500 lg:text-xl text-base font-normal leading-4 rounded-md bg-rose-100 focus:outline-none transition ease-in-out duration-150"
-                                                >
-                                                    {user.name}
+                            <Dropdown>
+                                <Dropdown.Trigger>
+                                    <span className="inline-flex rounded-md">
+                                        <button
+                                            type="button"
+                                            className="inline-flex items-center border border-transparent text-rose-500 lg:text-xl text-base font-normal leading-4 rounded-md bg-rose-100 focus:outline-none transition ease-in-out duration-150"
+                                        >
+                                            {user.name}
 
-                                                    <svg
-                                                        className="ml-2 -mr-0.5 h-4 w-4"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 20 20"
-                                                        fill="rgb(244 63 94)"
-                                                    >
-                                                        <path
-                                                            fillRule="evenodd"
-                                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                            clipRule="evenodd"
-                                                        />
-                                                    </svg>
-                                                </button>
-                                            </span>
-                                        </Dropdown.Trigger>
+                                            <svg
+                                                className="ml-2 -mr-0.5 h-4 w-4"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20"
+                                                fill="rgb(244 63 94)"
+                                            >
+                                                <path
+                                                    fillRule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clipRule="evenodd"
+                                                />
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </Dropdown.Trigger>
 
-                                        <Dropdown.Content>
-                                            <Dropdown.Link href="/dashboard">
-                                                Dashboard
-                                            </Dropdown.Link>
-                                            <Dropdown.Link href="/my-meetups">
-                                                My meetups
-                                            </Dropdown.Link>
-                                            <Dropdown.Link
-                                                href={route("profile.edit")}
-                                            >
-                                                Profile
-                                            </Dropdown.Link>
-                                            <Dropdown.Link
-                                                href={route("logout")}
-                                                method="post"
-                                                as="button"
-                                            >
-                                                Log Out
-                                            </Dropdown.Link>
-                                        </Dropdown.Content>
-                                    </Dropdown>
-                                </div>
-                            </div>
+                                <Dropdown.Content>
+                                    <Dropdown.Link href="/my-meetups">
+                                        My meetups
+                                    </Dropdown.Link>
+                                    <Dropdown.Link href={route("profile.edit")}>
+                                        Profile
+                                    </Dropdown.Link>
+                                    <Dropdown.Link
+                                        href={route("logout")}
+                                        method="post"
+                                        as="button"
+                                    >
+                                        Log Out
+                                    </Dropdown.Link>
+                                </Dropdown.Content>
+                            </Dropdown>
                         )}
                     </div>
                 </nav>

@@ -5,9 +5,9 @@ import QR2 from "@/Images/GithubQR.png";
 import LinkedIn from "@/Icons/LinkedIn";
 import Github from "@/Icons/Github";
 
-const Contact = () => {
+const Contact = ({ auth }) => {
     return (
-        <GuestLayout>
+        <GuestLayout user={auth.user}>
             <Head title="Contact" />
             <h1 className="animate__animated animate__fadeIn animate__slower">
                 Find me on:

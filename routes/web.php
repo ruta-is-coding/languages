@@ -26,9 +26,9 @@ Route::inertia('/contact', 'Contact')->name('contact');
 
 
 // Authentificated routes (only for logged-in user)
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', function () {
+    return Inertia::render('Welcome');
+})->middleware(['auth', 'verified'])->name('home');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [P::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [P::class, 'update'])->name('profile.update');

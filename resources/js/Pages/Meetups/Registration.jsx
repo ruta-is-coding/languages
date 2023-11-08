@@ -3,7 +3,7 @@ import GuestLayout from "@/Layouts/GuestLayout";
 import TextInput from "@/Components/TextInput";
 import Errors from "@/Components/Error";
 
-const Registration = ({ meetup, csrf_token }) => {
+const Registration = ({ auth, meetup, csrf_token }) => {
     const { errors } = usePage().props;
     function handleSubmit(e) {
         e.preventDefault();
@@ -11,7 +11,7 @@ const Registration = ({ meetup, csrf_token }) => {
         router.post(`/meetups/${meetup.id}/register`, data);
     }
     return (
-        <GuestLayout>
+        <GuestLayout user={auth.user}>
             <Head title="Register to a meetup" />
             {/* Error messages */}
             <Errors errors={errors} />

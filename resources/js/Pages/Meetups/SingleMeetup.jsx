@@ -1,9 +1,9 @@
 import { Head, Link } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 
-const SingleMeetup = ({ meetup, username, email }) => {
+const SingleMeetup = ({ auth, meetup, username, email }) => {
     return (
-        <GuestLayout>
+        <GuestLayout user={auth.user}>
             <Head title="Meetup" />
             <Link
                 href={route("meetups")}
